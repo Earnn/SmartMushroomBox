@@ -1,0 +1,80 @@
+{% extends 'base.html' %} {% block content %} {% load widget_tweaks %}
+<div class="container">
+    <h2>Sign up</h2>
+    <form method="post">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-md-6">
+                <label>username</label>
+            </div>
+            <div class="col-md-6">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                {{ form.username |add_class:"form-control" }}</div>
+            <div class="col-md-6">{% if form.errors.username %}
+                <div class="alert alert-danger"> <strong>{{ form.errors.username|escape }}</strong></div>
+                {% endif %} </div>
+        </div>
+     <!--    <div class="row">
+            <div class="col-md-6">
+                <label>password</label>
+            </div>
+            <div class="col-md-6">
+            </div>
+        </div> -->
+        <div class="row">
+            <div class="col-md-6">
+                <label>password</label> {{ form.password1 |add_class:"form-control" }}</div>
+            <div class="col-md-6">
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-6">
+                <label>confirm password</label>
+            </div>
+            <div class="col-md-6">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                {{ form.password2 |add_class:"form-control" }} </div>
+            <div class="col-md-6">
+                {% if form.errors.password2 %}
+                <div class="alert alert-danger"> <strong>{{ form.errors.password2|escape }}</strong></div>
+                {% endif %}
+            </div>
+        </div>
+        <!--  {% if form.errors.password2 %}
+        <div class="alert alert-danger"> <p style="color:blue">password</p>
+         {{ form.password1 }}
+            <br>
+            <p >confirm password</p>
+            {{ form.password2 }}
+            <strong>{{ form.errors.password2|escape }}</strong>
+        </div>
+
+        {% else %}
+        <p > password   {{ form.password1 }}</p>
+          
+          <p >confirm password   {{ form.password2 }}</p>
+          
+
+        {% endif %} 
+           -->
+        <!--     {% for field in form %}
+        {% for error in field.errors %}
+            <div class="alert alert-danger">
+            {{ field.label_tag }}<br>
+        {{ field }}
+                <strong>{{ error|escape }}</strong>
+            </div>
+        {% endfor %}
+    {% endfor %} -->
+        <br>
+        <button type="submit">Sign up</button>
+    </form>
+</div>
+{% endblock %}

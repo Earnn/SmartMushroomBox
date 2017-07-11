@@ -1,26 +1,73 @@
-{% extends 'base.html' %}
-
-{% block content %}
-  <h2>Log in to My Site</h2>
-  {% if form.errors %}
-    <p style="color: red">Your username and password didn't match. Please try again.</p>
-  {% endif %}
-  <form method="post">
+{% extends 'base.html' %} {% block content %} {% load static %} {% load widget_tweaks %}
+<!-- <h2>Log in to My Site</h2>  -->
+<!-- {% if form.errors %} -->
+<!-- <p style="color: red">Your username and password didn't match. Please try again.</p> -->
+<!-- {% endif %} -->
+<style>
+body,
+html {
+    /*background: #FF9000;*/
+    margin: 0;
+    padding: 0;
+    /*background-image: url(../images/bg.jpeg);*/
+    background-size: cover;
+    /*background-repeat: no-repeat;*/
+    /*background-position: center center;*/
+}
+</style>
+<link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
+<form method="post">
     {% csrf_token %}
-    <input type="hidden" name="next" value="{{ next }}" />
-    {% for field in form %}
-      <p>
-        {{ field.label_tag }}<br>
-        {{ field }}<br>
-        {% for error in field.errors %}
-          <p style="color: red">{{ error }}</p>
-        {% endfor %}
-        {% if field.help_text %}
-          <p><small style="color: grey">{{ field.help_text }}</small></p>
+    <!--     <input type="hidden" name="next" value="{{ next }}" />
+
+    <button type="submit">Log in</button> -->
+    <!-- {{ form.as_p }} -->
+    <!-- <button type="submit">Log in</button> -->
+    <h1>Muchroom Box</h1>
+    <div class="login-form">
+        <div class="form-group ">
+            {{form.username |add_class:"form-control"}}
+            <i class="fa fa-user"></i>
+        </div>
+        <!--      <span class="alert">{{ form.errors.password }}</span>
+        <span class="alert">{{ form.errors.password2 }}</span> -->
+        <!-- <p> sdf</p> -->
+                {% if form.errors %}
+        <div class="form-group log-status">
+            {{form.password |add_class:"form-control" }}
+            <i class="fa fa-lock"></i>
+        </div>
+     <span class="alert">Invalid Credentials</span>
+    
+
+        {% else %}
+        <div class="form-group ">
+            {{form.password |add_class:"form-control" }}
+            <i class="fa fa-lock"></i>
+        </div>
         {% endif %}
-      </p>
-    {% endfor %}
-    <button type="submit">Log in</button>
-    <a href="{% url 'signup' %}">New to My Site? Sign up</a>
-  </form>
-{% endblock %}
+<!-- \
+        <span class="alert">Invalid Credentials</span> -->
+        <a class="link" href="#">Lost your password?</a>
+        <!-- <input type="submit" class="btn " value="Log in" /> -->
+        <button type="submit" class="log-btn">Log in</button>
+        <a href="{% url 'signup' %}">New to My Site? Sign up</a>
+    </div>
+</form>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<!--  <script src="/static/js/index.js"></script> -->
+{% endblock %} {% block script %}
+<script type="text/javascript">
+
+    $('.log-btn').click(function() {
+        $('.log-status').addClass('wrong-entry');
+        $('.alert').fadeIn(500);
+        setTimeout("$('.alert').fadeOut(1500);", 3000);
+    });
+    $('.form-control').keypress(function() {
+        $('.log-status').removeClass('wrong-entry');
+    });
+
+
+</script>
+{% endblock script %}

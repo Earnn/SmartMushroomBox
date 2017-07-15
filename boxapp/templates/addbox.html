@@ -1,82 +1,5 @@
-{% extends 'base.html' %}{% block content %}{% load static %}
-<style type="text/css">
-.agile-login {
-    float: right;
-    width: 40%;
-    text-align: center;
-    padding: 9px 0;
-}
+{% extends 'base2.html' %}{% block content %}{% load static %}
 
-.agile-login ul li {
-    display: inline-block;
-    padding: 0em 1em;
-}
-
-.agile-login ul li a {
-    font-size: 1em;
-    text-transform: capitalize;
-    color: #fff;
-    text-decoration: none;
-}
-
-.agileits_header {
-    padding: 12px 0 8px;
-}
-
-.agileits_header {
-    background: white;
-    padding: 12px 0;
-}
-
-.product_list_header {
-    float: right;
-}
-
-.bghead {
-    background-image: url('{% static "images/bgbanner.jpeg"%}');
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    left: 50%;
-    top: -50%;
-    /*margin-left: -512px;   /* 50% */
-    */
-}
-
-.navigation {
-    background: #1e1e1e;
-    text-align: center;
-}
-
-.navbar .navbar-nav {
-    display: inline-block;
-    float: none;
-    vertical-align: top;
-}
-
-
-.item.container {
-    margin: 0 auto;
-    max-width: 1280px;
-    width: 70%;
-}
-
-/*@media only screen and (min-width: 601px) .item.container {
-    width: 85%;
-}
-
-@media only screen and (min-width: 993px) .item.container {
-    width: 70%;
-}
-*/
-
-
-/*
-.navbar .navbar-collapse {
-    text-align: center;
-}*/
-</style>
 <!-- <div class="agileits_header">
     <div class="container"> -->
 <!--  <div class="w3l_offers">
@@ -92,30 +15,7 @@
 
     </div>
 </div> -->
-<div class="top-bar">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="social pull-left">
-                    <ul>
-                        <li><a href=""><i class="fa fa-facebook"></i></a></li>
-                        <li><a href=""><i class="fa fa-twitter"></i></a></li>
-                        <li><a href=""><i class="fa fa-google-plus"></i></a></li>
-                        <li><a href=""><i class="fa fa-linkedin"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="action pull-right">
-                    <ul>
-                        <li><a href=""><i class="fa fa-user"></i> Login</a></li>
-                        <li><a href=""><i class="fa fa-lock"></i> Register</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+
 <div class="bghead ">
     <br>
     <br>

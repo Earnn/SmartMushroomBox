@@ -12,9 +12,11 @@ html {
     margin: 0;
     padding: 0;
     background-size: cover;
+    /*background-image: url('{% static "images/bgbanner.jpeg"%}');*/
     /*background-repeat: no-repeat;*/
     /*background-position: center center;*/
 }
+
 
 h1 {
     color: #ccc;
@@ -22,11 +24,16 @@ h1 {
     font-family: 'Vibur', cursive;
     font-size: 50px;
 }
+label{
+     color: #ccc;
+     font-size: 17px;
+}
 
 .login-form {
     width: 350px;
     padding: 40px 30px;
-    background: #eee;
+    /*background: #eee;*/
+      background: #314556;
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
     border-radius: 4px;
@@ -41,7 +48,25 @@ h1 {
     transform: translateY(-50%);
     opacity: 0.9;
 }
+   .signup-form {
+    width: 60%;
+    padding: 40px 30px;
 
+      background: #314556;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    margin: auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    opacity: 0.9;
+}
 .form-group {
     position: relative;
     margin-bottom: 15px;
@@ -112,12 +137,6 @@ h1 {
     color: #8C918F;
 }
 
-.alert {
-    display: none;
-    font-size: 12px;
-    color: #f00;
-    float: left;
-}
 
 @-moz-keyframes wrong-log {
     0%,

@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% load static %} {% block content %}{% load widget_tweaks %}
 
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  
 <style>
     body,html{
            background-image: url('{% static "images/bgbanner.jpeg"%}');
@@ -11,7 +11,7 @@
 <form method="post">
     {% csrf_token %}
     <div class="login-form">
-        <h1>Muchroom Box</h1>
+        <h1>Mushroom Box</h1>
         <!--  -->
         <input type="hidden" name="next" value="{{ next }}" />
         <p>
@@ -25,13 +25,14 @@
             </div>
             {% if form.errors %}
          
-            <p style="color: red">Your username and password didn't match. Please try again.</p>
+            <p style="color: #EF5350;font-weight: bold;">Your username and password didn't match. Please try again.</p>
         
           
             {% endif %}
         </p>
         <button type="submit" class="log-btn">Log in</button>
-        <a href="{% url 'signup' %}">New to My Site? Sign up</a>
+      <br><br>
+        <a style="color: #D6DADC" href="{% url 'signup' %}">New to My Site? Sign up</a>
     </div>
 </form>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>

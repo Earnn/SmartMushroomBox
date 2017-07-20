@@ -6,4 +6,7 @@ from crispy_forms.utils import render_crispy_form
 
 @login_required
 def home( request):
+	return render(request, 'home.html')
+
+def add_box( request):
 	return render(request, 'addbox.html')

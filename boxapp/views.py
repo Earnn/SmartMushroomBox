@@ -10,3 +10,6 @@ def home( request):
 
 def add_box( request):
 	return render(request, 'addbox.html')
+
+def mybox( request):
+	return render(request, 'mybox.html')

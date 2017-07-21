@@ -1,295 +1,116 @@
-{% extends 'base2.html' %}{% block content %}{% load static %}
-    <!-- <div class="agileits_header">
-        <div class="container"> -->
-            <!--  <div class="w3l_offers">
-                <p>SMART <a>MUSHROOM</a> BOX</p>
-            </div> -->
-            <!--         <div class="agile-login">
-                <ul>
-                    <li><a href="#" style="color: #fe9126;"> Create Account </a></li>
-                    <li style="background-color: #ff6404"><a  href="#" style="color: #fff;">Login</a></li>
-                    <li><a href="#" style="color: #4f4f4f;">Help</a></li>
-                </ul>
-            </div>
-        </div>
-    </div> -->
-    <style>
-    .content{
-    width: 70%;
-    }
-    .headcurve {
-    -webkit-border-top-left-radius: 40% 80px;
-    -webkit-border-top-right-radius: 40% 80px;
-    -moz-border-radius-topleft: 40% 80px;
-    -moz-border-radius-topright: 40% 80px;
-    border-top-left-radius: 40% 80px;
-    border-top-right-radius: 40% 80px;
-    background: #7EC239;
-    height: 30%;
-    }
-    .badge {
-    position: relative;
-    width: 400px;
-    border-radius: 50%;
-    transform: rotate(-50deg);
-    }
-    h1 span {
-    font: 26px Monaco, MonoSpace;
-    height: 200px;
-    position: absolute;
-    width: 20px;
-    left: 0;
-    top: 0;
-    transform-origin: bottom center;
-    }
-    .char1 {
-    transform: rotate(6deg);
-    }
-    .char2 {
-    transform: rotate(12deg);
-    }
-    .char3 {
-    transform: rotate(18deg);
-    }
-    .char4 {
-    transform: rotate(24deg);
-    }
-    .char5 {
-    transform: rotate(30deg);
-    }
-    .char6 {
-    transform: rotate(36deg);
-    }
-    .char7 {
-    transform: rotate(42deg);
-    }
-    .char8 {
-    transform: rotate(48deg);
-    }
-    .char9 {
-    transform: rotate(54deg);
-    }
-    .char10 {
-    transform: rotate(60deg);
-    }
-    .char11 {
-    transform: rotate(66deg);
-    }
-    .char12 {
-    transform: rotate(72deg);
-    }
-    .char13 {
-    transform: rotate(78deg);
-    }
-    .char14 {
-    transform: rotate(84deg);
-    }
-    .char15 {
-    transform: rotate(90deg);
-    }
-    .char16 {
-    transform: rotate(96deg);
-    }
-    .char17 {
-    transform: rotate(102deg);
-    }
-    .char18 {
-    transform: rotate(108deg);
-    }
-    .char19 {
-    transform: rotate(114deg);
-    }
-    .char20 {
-    transform: rotate(120deg);
-    }
-    .char21 {
-    transform: rotate(126deg);
-    }
-    .char22 {
-    transform: rotate(132deg);
-    }
-    .char23 {
-    transform: rotate(138deg);
-    }
-    .char24 {
-    transform: rotate(144deg);
-    }
-    </style>
-    <div class="bghead ">
-        <br>
-        <br>
-        <br>
-        <h2 style="text-align: center; color: white;">SMART MUSHROOM BOX</h2>
-        <br>
-        <br>
-        <br>
-    </div>
-    <div class="navigation">
-        <nav class="navbar navbar-theme">
-            <div class="container">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
-                    <span class="sr-only">Menu</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+{% extends 'base2.html' %}{% block content %}
+<!-- {% load static %} -->
+<div class="navigation">
+        <div class="container">
+       
+            <nav class="navbar navbar-default">
+                <div class="navbar-header nav_2">
+                    <button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
                     </button>
-                </div>
-                <div class="collapse navbar-collapse" id="navbar">
+                </div> 
+                <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
                     <ul class="nav navbar-nav">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="add">Add box</a></li>
-                        <li><a href="#">Shortcode</a></li>
-                        <li><a href="#">Features</a></li>
-                        <li><a href="#">Media</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Contact Us</a></li>
+                        <li class="active"><a href="index.html" class="act">Home</a></li>   
+                        <li><a href="about.html">My Box</a></li>
+                        <li><a href="short-codes.html">Add Box</a></li>
+                        <li><a href="mail.html">Product</a></li>
+                        <li><a href="mail.html">Contact</a></li>
                     </ul>
                 </div>
-                <!-- /.navbar-collapse -->
-            </div>
-            <!-- /.container-fluid -->
-        </nav>
+            </nav>
+        </div>
     </div>
+            </header>
+<div class="bghead ">
     <br>
-    <div class="item container ">
-        <div class="slider">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-5 col-sm-8">
-                        <div class="slider small-slider">
-                            <div id="small-featured" class="carousel slide" data-ride="carousel">
-                                <!-- <ol class="carousel-indicators">
-                                    <li data-target="#small-featured" data-slide-to="0" class="active"></li>
-                                </ol> -->
-                                <div class="carousel-inner" role="listbox">
-                                    <div class="item active" style="background-color: white;">
-                                        <p class="headcurve" style="background-color: #7EC239;">
-                                            <!--            <center><h1 style="color: white">
-                                            <span class="char1">E</span>
-                                            <span class="char2">s</span>
-                                            <span class="char3">t</span>
-                                            <span class="char4">a</span>
-                                            <span class="char5">b</span>
-                                            </h1></center> -->
-                                        </p>
-                                        <!--
-                                        <hr style="width: 80%">
-                                        <div class="carousel-caption">
-                                            <h3 style="color: black">กล่องเห็ด </h3>
-                                            <p>status : xxxx</p>
-                                            <p>temperature : xxx</p>
-                                        </div> -->
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-description text-center">
-                                <p class="status good">Good </p>
-                                <!-- <p class="price">$ 55.00</p> -->
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-5 col-sm-8">
-                        <div class="slider small-slider">
-                            <div id="small-featured" class="carousel slide" data-ride="carousel">
-                                <!-- <ol class="carousel-indicators">
-                                    <li data-target="#small-featured" data-slide-to="0" class="active"></li>
-                                </ol> -->
-                                <div class="carousel-inner" role="listbox">
-                                    <div class="item active" style="box-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;">
-                                        <!-- <p class="headcurve" style="background-color: #E88B9B;">  <center>Warning</center>  </p> -->
-                                        <!--        <img style="width: 50%;  display: block;
-                                        margin: 0 auto; " src="{% static "images/mushroom2.png"%}"> -->
-                                        <hr style="width: 80%">
-                                        <div class="carousel-caption">
-                                            <h3 style="color: white">กล่องเห็ด </h3>
-                                            <p>status : xxxx</p>
-                                            <p>temperature : xxx</p>
-                                            <!-- <a href="" class="btn btn-theme">Shop Now</a> -->
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-description text-center">
-                                <p class="status warning">Warning </p>
-                                <!-- <p class="price">$ 55.00</p> -->
-                            </div>
-                        </div>
-                    </div>
+    <br>
+    <br>
+    <!-- <h2 style="" class="thai_font-title">ก ล่ อ ง เ ห็ ด อั จ ฉ ริ ย ะ</h2> -->
+    <h2 style="letter-spacing: 30px;" class="thai_font-title">กล่องเห็ดอัจฉริยะ</h2>
+    <h3 style="text-align: center; color: white;" class="thai_font">เลี้ยงง่าย โตไว กำไรดี ควบคุมได้ด้วยตัวคุณ</h3>
+    <button class="uk-button uk-button-primary uk-align-center uk-button-large" style="background-color: #2ecc71">Buy now</button>
+    <!-- <a class="uk-button uk-button-default" href="">Link</a> -->
+    <br>
+    <br>
+    <br>
+</div>
+<br>
+
+<div class="container">
+    <div class="uk-section uk-section-default">
+        <div class="uk-container">
+            <h3>Section Default</h3>
+            <div class="uk-grid-match uk-child-width-1-3@m uk-child-width-1-3@l" uk-grid>
+                <div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
                 </div>
-                <div class="row">
-                    <!-- box-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue; -->
-                    
-                    <div class="col-md-4 col-sm-8" style="  box-shadow: 10px 10px grey;">
-                        <div class="slider small-slider">
-                            <div id="small-featured" class="carousel slide" data-ride="carousel">
-                                <!-- <ol class="carousel-indicators">
-                                    <li data-target="#small-featured" data-slide-to="0" class="active"></li>
-                                </ol> -->
-                                <div class="carousel-inner" role="listbox">
-                                    <div class="item active" style="background-image:url('images/slider-small-1.jpg')">
-                                        <!--        <img style="width: 50%;  display: block;
-                                        margin: 0 auto; " src="{% static "images/mushroom2.png"%}"> -->
-                                        <hr style="width: 80%">
-                                        <div class="carousel-caption">
-                                            <h3>กล่องเห็ด </h3>
-                                            <p>status : xxxx</p>
-                                            <p>temperature : xxx</p>
-                                            <!-- <a href="" class="btn btn-theme">Shop Now</a> -->
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-description text-center">
-                                <p class="status problem">Problem </p>
-                                <!-- <p class="price">$ 55.00</p> -->
-                            </div>
-                        </div>
-                    </div>
+                <div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+                </div>
+                <div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
                 </div>
             </div>
         </div>
     </div>
-    <div class="featured-items">
-        <div class="item container">
-            <div class="row">
-                <div class="tab-content">
-                    <div class="tab-pane active" id="trending">
-                        <div class="col-md-6 col-sm-8">
-                            <div class="single-product">
-                                <div class="product-block">
-                                    <img style="width: 50%;  display: block;
-                                    margin: 0 auto; " src="{% static "images/mushroom2.png"%}" class="thumpnail">
-                                    <hr style="width: 80%">
-                                    <div class="container">
-                                        <p>status : xxxx</p>
-                                        <p>temperature : xxx</p>
-                                    </div>
-                                    <div class="product-description text-center">
-                                        <p class="price">Good </p>
-                                        <!-- <p class="price">$ 55.00</p> -->
-                                    </div>
-                                    <div class="product-hover">
-                                        <ul>
-                                            <li><a href=""><i class="fa fa-cart-arrow-down"></i></a></li>
-                                            <li><a href=""><i class="fa fa-arrows-h"></i></a></li>
-                                            <li><a href=""><i class="fa fa-heart-o"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+    <div class="uk-section uk-section-muted">
+        <div class="uk-container">
+            <h3>Section Muted</h3>
+            <div class="uk-grid-match uk-child-width-1-3@m" uk-grid>
+                <div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+                </div>
+                <div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+                </div>
+                <div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
                 </div>
             </div>
         </div>
     </div>
-{% endblock %}
-{% block script %}
-    <script type="application/x-javascript">
+    <div class="uk-section uk-section-primary uk-light">
+        <div class="uk-container">
+            <h3>Section Primary</h3>
+            <div class="uk-grid-match uk-child-width-1-3@m" uk-grid>
+                <div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+                </div>
+                <div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+                </div>
+                <div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="uk-section uk-section-secondary uk-light">
+        <div class="uk-container">
+            <h3>Section Secondary</h3>
+            <div class="uk-grid-match uk-child-width-1-3@m" uk-grid>
+                <div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+                </div>
+                <div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+                </div>
+                <div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+</div>
+{% endblock %} {% block script %}
+<!--  <script type="application/x-javascript">
     $(function() {
     $("h1").lettering();
     });
-    </script>
+    </script> -->
 {% endblock script %}

@@ -32,7 +32,7 @@ class CreateBoxModelForm(ModelForm):
 			"code",
 			"password",
 		]
-		widgets = {'code': TextInput(attrs={'placeholder': 'serial number'}),'password': TextInput(attrs={'placeholder': 'password'}),}
+		widgets = {'code': TextInput(attrs={'placeholder': 'serial number','class':'uk-input'}),'password': TextInput(attrs={'placeholder': 'password','class':'uk-input'})}
 
 class AddProfileBoxModelForm(ModelForm):
 	class Meta:
@@ -42,6 +42,6 @@ class AddProfileBoxModelForm(ModelForm):
 			"profile",
 		]
 		widgets = {
-		'code': TextInput(attrs={'placeholder': 'name'}),
+		'name': TextInput(attrs={'placeholder': 'name','class':'uk-input'}),
 
 		}

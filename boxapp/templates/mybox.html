@@ -34,8 +34,8 @@
 <br>
 <div class="container">
     <!-- <div class="uk-child-width-1-2@m uk-grid-match" uk-grid> -->
-       
-      
+
+
 <div class="uk-column-1-1@s uk-column-1-2@m uk-column-1-2@l">
     <div>
             <div class="uk-card uk-card-default uk-card-hover uk-card-body">
@@ -57,7 +57,15 @@
             </div>
         </div>
 </div>
-      
+      <br><br>
+    <div class="container">{% for box in box_list %}
+
+<p>serial number</p> <p>{{box.code}}</p><br>
+<p>password</p>
+<p>{{box.password}}</p>
+
+ <button style="float: right;" class="button btn-default"> <a style="color: black" href="{% url 'delete_box' box.id %}">Delete me</a></button>
+ {% endfor %}</div>
     <!-- </div> -->
 </div>
 

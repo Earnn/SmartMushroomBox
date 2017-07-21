@@ -1,5 +1,5 @@
 {% extends 'base2.html' %} {% load static %} {% block content %}{% load widget_tweaks %}
-
+    
     <!--
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
@@ -31,17 +31,17 @@
         <input type="hidden" name="next" value="{{ next }}" />
         <p>
             <div class="form-group ">
-                {{boxform.code}}
+                {{boxform.name}}
             </div>
             <div class="form-group ">
-                {{boxform.password}}
-
+                   {{ boxform.profile }} {% for x in boxform.choices %} {{x}} {% endfor %}
+              
             </div>
-
+      
         </p>
         <button type="submit" class="log-btn">Create box</button>
         <br><br>
-
+        
     </div>
 </form>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>

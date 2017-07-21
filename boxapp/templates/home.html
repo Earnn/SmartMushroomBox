@@ -107,9 +107,26 @@
     </div>
 </div>
 {% endblock %} {% block script %}
-<!--  <script type="application/x-javascript">
-    $(function() {
-    $("h1").lettering();
-    });
-    </script> -->
+
+
+<script type="text/javascript">
+
+UIkit.on('beforeready.uk.dom', function(){
+
+    console.log( "ready!" );
+    alert("sdffs");
+});
+// $(function() {
+
+
+//     console.log("reqdt");
+//     console.log("ready!");
+//     $('#profile').change(function() {
+//         console.log("sdfsdf");
+//         alert(('#profile').val());
+//         if ($('#profile').val() == 'profile A') { $('#a').show(); } else if ($('#type').val() == 'profile B') { $('#row_dim').hide(); } else if ($('#type').val() == 'profile C') {} else if ($('#type').val() == 'profile D') {}
+//     });
+// });
+</script>
+
 {% endblock script %}

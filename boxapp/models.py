@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from django.forms import ModelForm, Textarea,TextInput,FileInput,ChoiceField
+from django.forms import ModelForm, Textarea,TextInput,FileInput,ChoiceField,Select
 # Create your models here.
 
 class Box(models.Model):
@@ -15,7 +15,7 @@ class Box(models.Model):
 	name = models.CharField(max_length=20,blank=True,null=True)
 	code = models.CharField(max_length=20)
 	password = models.CharField(max_length=20,blank=True)
-	profile =models.CharField(max_length=100,blank=True,null=True,choices=CHOICES)
+	profile =models.CharField(max_length=100,null=True,choices=CHOICES,blank=False,default='Profile A')
 	temporature = models.DecimalField(max_digits=15, decimal_places=2,blank=True,null=True)
 	temporature_by_control = models.DecimalField(max_digits=15, decimal_places=2,blank=True,null=True)
 	humidity = models.DecimalField(max_digits=15, decimal_places=2,blank=True,null=True)
@@ -43,5 +43,5 @@ class AddProfileBoxModelForm(ModelForm):
 		]
 		widgets = {
 		'name': TextInput(attrs={'placeholder': 'name','class':'uk-input'}),
-
+		'profile' : Select(attrs={'class':'uk-select','id':'profile'})
 		}

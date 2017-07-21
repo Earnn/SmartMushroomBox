@@ -48,7 +48,7 @@ def add_box_profile(request, pk):
 			print ("box: ",box_update)
 			return HttpResponseRedirect('/mushroom/mybox')
 
-	return render(request, 'addprofile.html',{'boxform':boxform,})
+	return render(request, 'addprofile.html',{'boxform':boxform})
 
 
 @login_required

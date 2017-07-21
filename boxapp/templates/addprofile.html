@@ -1,4 +1,4 @@
-{% extends 'base2.html' %} {% load static %} {% block content %}{% load widget_tweaks %}
+{% extends 'base2.html' %} {% block content %}
 <div class="navigation">
     <div class="container">
         <nav class="navbar navbar-default">
@@ -43,50 +43,106 @@
                 <form class="uk-form-stacked" method="post">
                     {% csrf_token %}
                     <div class="uk-margin">
-                        <label class="uk-form-label thai_font" for="form-stacked-text">ตั้งชื่อกล่องเห็ดของคุณ</label>
+                        <label class="uk-form-label thai_font" for="form-stacked-text">ตั้งชื่อกล่องเห็ดของคุณ
+                            <div class="uk-inline">
+                                <span class="uk-badge" style="background-color:#bababc;">?</span>
+                                <div uk-drop="pos: right-center">
+                                    <div class="uk-card uk-card-body uk-card-default">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</div>
+                                </div>
+                            </div>
+                        </label>
                         <div class="uk-form-controls">
                             {{boxform.name}}
                         </div>
                     </div>
                     <div class="uk-margin">
-                        <label class="uk-form-label" for="form-stacked-select">Select</label>
-                        <div>
-                            <ul class="uk-child-width-expand" uk-tab>
-                                <li class="uk-active"><a href="#">Justify</a></li>
-                                <li><a href="#">Item</a></li>
-                                <li><a href="#">Item</a></li>
-                                <li><a href="#">Item</a></li>
-                            </ul>
+                        <label class="uk-form-label thai_font" for="form-stacked-select">เลือก Profile
+                            <div class="uk-inline">
+                                <span class="uk-badge" style="background-color:#bababc;">?</span>
+                                <div uk-drop="pos: right-center">
+                                    <div class="uk-card uk-card-body uk-card-default">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</div>
+                                </div>
+                            </div>
+                        </label>
+                        <div class="uk-form-controls">
+                            {{ boxform.profile }} {% for x in boxform.choices %} {{x}} {% endfor %}
                         </div>
                     </div>
                 </form>
+                <div id="a">
+                    <h3 class="">Profile A</h3>
+                    <p>Lorem ipsum sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+                <div id="b">
+                    <h3 class="">Profile B</h3>
+                    <p>Lorem ipsum sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+                <div id="c">
+                    <h3 class="">Profile C</h3>
+                    <p>Lorem ipsum sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+                <div id="d">
+                    <h3 class="">Profile D</h3>
+                    <p>Lorem ipsum sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+                <div class="uk-text-center">
+                    <button class="uk-button uk-button-default ">Cancel</button>
+          
+                    <button class="uk-button uk-button-primary ">Create Box</button>
+                </div>
+                <br>
             </div>
         </div>
     </div>
-
-    
-    <!--  <form method="post">
-    {% csrf_token %}
-    <div class="login-form">
-        <h1>Mushroom Box</h1>
-
-        <input type="hidden" name="next" value="{{ next }}" />
-        <p>
-            <div class="form-group ">
-                {{boxform.name}}
-            </div>
-            <div class="form-group ">
-                   {{ boxform.profile }} {% for x in boxform.choices %} {{x}} {% endfor %}
-              
-            </div>
-      
-        </p>
-        <button type="submit" class="log-btn">Create box</button>
-        <br><br>
-        
-    </div>
-</form> -->
+    <br>
 </div>
-<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-<script src="{% static 'js/index.js' %}"></script>
-{% endblock %}
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#a').show();
+    $('#b').hide();
+    $('#c').hide();
+    $('#d').hide();
+
+
+    console.log("reqdt");
+    $('#profile').change(function() {
+        var choice = jQuery('#profile option:selected').text();
+
+        if (choice == "Profile A") {
+            // alert(choice);
+            $('#a').show();
+            $('#b').hide();
+            $('#c').hide();
+            $('#d').hide();
+
+        } else if (choice == "Profile B") {
+            // alert(choice);
+            $('#a').hide();
+            $('#b').show();
+            $('#c').hide();
+            $('#d').hide();
+
+        } else if (choice == "Profile C") {
+            // alert(choice);
+            $('#a').hide();
+            $('#b').hide();
+            $('#c').show();
+            $('#d').hide();
+
+        } else if (choice == "Profile D") {
+            // alert(choice);
+            $('#a').hide();
+            $('#b').hide();
+            $('#c').hide();
+            $('#d').show();
+
+        }
+    });
+});
+// $(function() {
+
+
+
+// });
+</script>
+{% endblock content%} {% block script %} {% endblock script %}

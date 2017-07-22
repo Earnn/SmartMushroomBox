@@ -12,11 +12,13 @@
             </div>
             <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
                 <ul class="nav navbar-nav">
-                    <li><a href="index.html" class="act">Home</a></li>
-                    <li><a href="about.html">My Box</a></li>
-                    <li class="active"><a href="short-codes.html">Add Box</a></li>
+                    <li><a href="/mushroom/" class="act">Home</a></li>
+                    <li><a href="/mushroom/mybox/">My Box</a></li>
+                    <li class="/mushroom/add/"><a href="short-codes.html">Add Box</a></li>
                     <li><a href="mail.html">Product</a></li>
                     <li><a href="mail.html">Contact</a></li>
+
+
                 </ul>
             </div>
         </nav>
@@ -40,7 +42,13 @@
                         <!-- <div class="uk-align-center"> -->
                         <h3 class="uk-card-title uk-margin-remove-bottom thai_font ">กล่องเห็ดอัจฉริยะ</h3>
                         <p class="uk-text-meta uk-margin-remove-top uk-margin-remove-bottom thai_font">
-                            กรุณากรอก Serial number ที่ได้รับมา
+                          {% if messages %}
+                    <ul class="messages">
+                        {% for message in messages %}
+                            <li class="{{ message.tags }}">{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
                         </p>
                         <!-- </div> -->
                     </div>
@@ -55,7 +63,7 @@
                 </div>
                 <div class="uk-card-footer">
                     <button type="submit" class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom" style="background-color: #0AC986;">Create box</button>
-                     <p class="thai_font uk-text-center" ">
+                     <p class="thai_font uk-text-center" >
                             ยังไม่มีใช่ไหม ?  <button class="uk-button uk-button-text thai_font" >คลิกที่นี่ </button>
                         </p>
                 </div>
@@ -67,7 +75,7 @@
     {% csrf_token %}
     <div class="auth-box-form">
         <h1>Mushroom Box</h1>
-       
+
         <input type="hidden" name="next" value="{{ next }}" />
         <p>
             <div class="form-group ">
@@ -84,4 +92,3 @@
 </form> -->
 
 {% endblock %}
-

@@ -25,15 +25,22 @@ def add_box( request):
 		boxform = CreateBoxModelForm(request.POST, request.FILES)
 
 		if boxform.is_valid():
-			box = Box.objects.create(
-				code=boxform.cleaned_data['code'],
-				password = boxform.cleaned_data['password'],
-				)
-			print ("box: ",box.pk)
-			return redirect('add_box_profile', pk=box.pk)
+			try:
+				obj = Box.objects.get(code=boxform.cleaned_data['code'],password = boxform.cleaned_data['password'])
+				box = Box.objects.filter(code=boxform.cleaned_data['code'],password = boxform.cleaned_data['password']).update(owner=request.user)
+
+				return redirect('add_box_profile', pk=obj.pk)
+			except Box.DoesNotExist:
+				messages.error(request, 'This serial number is not exist, Please try another one.')
+			# box = Box.objects.create(
+			# 	code=boxform.cleaned_data['code'],
+			# 	password = boxform.cleaned_data['password'],
+			# 	)
+
+
 			# return HttpResponseRedirect('/mushroom/mybox')
 
-	return render(request, 'addbox.html',{'boxform':boxform,})
+	return render(request, 'addbox.html',{'boxform':boxform,'user':request.user})
 
 @login_required
 def add_box_profile(request, pk):

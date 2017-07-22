@@ -45,7 +45,7 @@
                           {% if messages %}
                     <ul class="messages">
                         {% for message in messages %}
-                            <li class="{{ message.tags }}">{{ message }}</li>
+                            <li class="{{ message.tags }} thai_font">{{ message }}</li>
                         {% endfor %}
                     </ul>
                 {% endif %}
@@ -66,6 +66,7 @@
                      <p class="thai_font uk-text-center" >
                             ยังไม่มีใช่ไหม ?  <button class="uk-button uk-button-text thai_font" >คลิกที่นี่ </button>
                         </p>
+                      
                 </div>
             </div>
         </form>

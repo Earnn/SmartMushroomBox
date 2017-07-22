@@ -17,6 +17,7 @@ def home( request):
 @login_required
 def mybox( request):
 	box_list = Box.objects.all()
+	
 	return render(request, 'mybox.html',{'box_list':box_list})
 
 @login_required
@@ -32,7 +33,7 @@ def add_box( request):
 
 				return redirect('add_box_profile', pk=obj.pk)
 			except Box.DoesNotExist:
-				messages.error(request, 'This serial number is not exist, Please try another one.')
+				messages.error(request, 'ไม่มีหมายเลขนี้อยู่ในระบบ กรุณากรอกใหม่อีกครั้ง')
 			# box = Box.objects.create(
 			# 	code=boxform.cleaned_data['code'],
 			# 	password = boxform.cleaned_data['password'],

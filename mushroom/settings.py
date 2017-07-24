@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'crispy_forms',
     'widget_tweaks',
     'login',
-    'boxapp'
+    'boxapp',
+    'AppControl',
 ]
 
 MIDDLEWARE = [

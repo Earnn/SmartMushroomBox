@@ -1,157 +1,196 @@
 {% extends 'base2.html' %} {% load static %} {% block content %}
-  <style>
-  p{
-  font-weight: bold;
+<style>
+  p {
+    font-weight: bold;
   }
-  h3{
-  font-weight: bold;
-  
+
+  h3 {
+    font-weight: bold;
   }
-  </style>
-  <div class="navigation">
-    <div class="container">
-      <nav class="navbar navbar-default">
-        <div class="navbar-header nav_2">
-          <button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
+</style>
+<div class="navigation">
+  <div class="container">
+    <nav class="navbar navbar-default">
+      <div class="navbar-header nav_2">
+        <button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
-          </button>
-        </div>
-        <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
-          <ul class="nav navbar-nav">
-            <li><a href="/mushroom/" class="act">Home</a></li>
-            <li class="active"><a href="/mushroom/mybox/">My Box</a></li>
-            <li><a href="/mushroom/add/">Add Box</a></li>
-            <li><a href="mail.html">Product</a></li>
-            <li><a href="mail.html">Contact</a></li>
-          </ul>
-        </div>
-      </nav>
-    </div>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+        <ul class="nav navbar-nav">
+          <li><a href="/mushroom/" class="act">Home</a></li>
+          <li class="active"><a href="/mushroom/mybox/">My Box</a></li>
+          <li><a href="/mushroom/add/">Add Box</a></li>
+          <li><a href="mail.html">Product</a></li>
+          <li><a href="mail.html">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
   </div>
-  <div class="bghead ">
-    <br>
-    <!-- <h2 style="" class="thai_font-title">ก ล่ อ ง เ ห็ ด อั จ ฉ ริ ย ะ</h2> -->
-    <h2 style="letter-spacing: 30px;" class="thai_font-title">กล่องเห็ดอัจฉริยะ</h2>
-    <h3 style="text-align: center; color: white;" class="thai_font">เช็คสถานะ และแก้ไขกล่องเห็ดของคุณได้ที่นี่ </h3>
-    <br>
-  </div>
+</div>
+<div class="bghead ">
+  <br>
+  <!-- <h2 style="" class="thai_font-title">ก ล่ อ ง เ ห็ ด อั จ ฉ ริ ย ะ</h2> -->
+  <h2 style="letter-spacing: 30px;" class="thai_font-title">กล่องเห็ดอัจฉริยะ</h2>
+  <h3 style="text-align: center; color: white;" class="thai_font">เช็คสถานะ และแก้ไขกล่องเห็ดของคุณได้ที่นี่ </h3>
+  <br>
+</div>
 </header>
 <div class="uk-background-muted">
   <br>
   <div class="container">
-    
-    
-    <div class="uk-grid">  {% for box in box_list %}
-      <div class="uk-width-1-2">
-      
+    <div class="uk-grid"> {% for box in box_list %}
+      <div class="uk-width-1-2@m uk-width-1-1@s">
         <div>
           <div class="uk-card uk-card-default uk-card-hover uk-card-body">
-            <h3 class="uk-card-title thai_font" style="color: #d8703f" >{{box.name}}</h3>
-            <div class="uk-column-1-2@s uk-column-1-3@m uk-column-1-4@l">
-              <div class="thai_font uk-text-left">
-                <label class="thai_font" for="">&nbsp;<i  class="fa fa-thermometer-quarter" aria-hidden="true"></i>  อุณหภูมิ</label>
-              </div>
-              <div class="thai_font uk-text-left">
-                <p>{{box.temporature}} °C</p>
-              </div>
-              <div class="thai_font uk-text-left">
-                <label class="thai_font" for=""> <i class="fa fa-tint" aria-hidden="true"></i> ความชื้น</label>
-              </div>
-              <div class="thai_font uk-text-left">
-                <p>{{box.humidity}} °C</p>
-              </div>
-            </div>
-            <div class="uk-column-1-2@s uk-column-1-3@m uk-column-1-4@l">
-              <div class="thai_font uk-text-left">
-                <label class="thai_font" for=""> <i class="fa fa-envira" aria-hidden="true"></i> เริ่มปลูก</label>
-              </div>
-              <div class="thai_font uk-text-left">
-                <p style="font-weight:bold">{{box.start_date |date:"M, d Y"}}</p>
-              </div>
-              <div class="thai_font uk-text-left">
-                <label class="thai_font" for=""><i class="fa fa-smile-o" aria-hidden="true"></i> กินได้</label>
-              </div>
-              <div class="thai_font uk-text-left">
-                <p>{{box.end_date|date:"M, d Y" }}</p>
-              </div>
-            </div>
-            <div class="uk-column-1-2@s uk-column-1-3@m uk-column-1-4@l">
-               <div class="thai_font uk-text-left">
-                <label class="thai_font" for=""><i class="fa fa-line-chart" aria-hidden="true"></i> โปรไฟล์</label>
-              </div>
-              <div class="thai_font uk-text-left">
-                <p>{{box.profile}}</p>
-              </div>
-              <div class="thai_font uk-text-left">
-                <label class="thai_font" for=""> <i class="fa fa-heartbeat" aria-hidden="true"></i> สถานะ</label>
-              </div>
-              {% if box.status_color == "เขียว" %}
-                <div class="thai_font uk-text-left">
-                  <p><span id="stat" class="uk-badge" style="background-color: #33691E
-                  " >Good</span></p>
-                </div>
+            <div>
+              <h3 class="uk-card-title thai_font" style="color: #d8703f">{{box.name}}  {% if box.status_color == "เขียว" %}
+                <span id="stat" class="uk-badge" style="background-color: #33691E
+                " >Good</span>
                 {% elif box.status_color == "ส้ม" %}
-                <div class="thai_font uk-text-left">
-                  <p><span id="stat" class="uk-badge" style="background-color: #FF5722
-                  " >Warning</span></p>
+                <span id="stat" class="uk-badge" style="background-color: #FF5722
+                " >Warning</span>
+              {% else %}
+                <span id="stat" class="uk-badge" style="background-color: #E53935" >Danger</span>
+              {% endif %}</h3>
+              <p></p>
+            </div>
+            <div class="uk-child-width-1-2@m uk-child-width-1-2@s" uk-grid>
+
+              <div>
+                <div class="uk-child-width-1-2@m uk-child-width-1-2@s" uk-grid>
+                  <div>
+                    <p class="thai_font box-label" for=""><i class="fa fa-thermometer-quarter" aria-hidden="true"></i> อุณหภูมิ</p>
+                  </div>
+                  <div>
+                    <p>{{box.humidity}} °C</p>
+                  </div>
                 </div>
-              {% else %}  <div class="thai_font uk-text-left">
-                <p><span id="stat" class="uk-badge" style="background-color: #E53935" >Danger</span></p>
               </div>
-            {% endif %}
-            
-            
-          </div>
-          <hr>
-          <div class="uk-column-1-2@s uk-column-1-3@m uk-column-1-4@l">
-            <div class="thai_font uk-text-left">
-              <button class="uk-button uk-button-text thai_font"> อ่านเพิ่มเติม</button>
+              <div>
+                <div class="uk-child-width-1-2@m uk-child-width-1-2@s" uk-grid>
+                  <div>
+                    <p class="thai_font box-label" for=""> <i class="fa fa-tint" aria-hidden="true"></i> ความชื้น</p>
+                  </div>
+                  <div>
+                    <p>{{box.humidity}} °C</p>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div class="uk-child-width-1-2@m uk-child-width-1-2@s" uk-grid>
+                  <div>
+                    <p class="thai_font box-label" for=""> <i class="fa fa-envira" aria-hidden="true"></i> เริ่มปลูก</p>
+                  </div>
+                  <div>
+                    <p style="font-weight:bold">{{box.start_date |date:"M, d Y"}}</p>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div class="uk-child-width-1-2@m uk-child-width-1-2@s" uk-grid>
+                  <div>
+                    <p class="thai_font box-label" for=""><i class="fa fa-smile-o" aria-hidden="true"></i> กินได้</p>
+                  </div>
+                  <div>
+                    <p>{{box.end_date|date:"M, d Y" }}</p>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div class="uk-child-width-1-2@m uk-child-width-1-2@s" uk-grid>
+                  <div>
+                    <p class="thai_font box-label" for=""><i class="fa fa-line-chart" aria-hidden="true"></i> โปรไฟล์</p>
+                  </div>
+                  <div>
+                    <p>{{box.profile}} </p>
+
+                  </div>
+                </div>
+              </div>
+              <div>
+
+              </div>
             </div>
-            <div class="">
-              <button class="uk-button uk-button-text thai_font"> </button>
+
+            <hr>
+            <div class="uk-child-width-1-4@m uk-child-width-1-4@s uk-child-width-1-4@l" uk-grid>
+
+              <div class="thai_font uk-text-left">
+                <button class="uk-button uk-button-text thai_font"> อ่านเพิ่มเติม</button>
+              </div>
+              <div class="">
+
+              </div>
+              <div class="">
+
+              </div>
+              <div class="thai_font uk-text-left">
+                <button class="uk-button uk-button-text thai_font"> ตั้งค่ากล่อง</button>
+              </div>
             </div>
-            <div class="">
-              <button class="uk-button uk-button-text thai_font"> </button>
-            </div>
-            <div class="thai_font uk-text-left">
-              <button class="uk-button uk-button-text thai_font"> ตั้งค่ากล่อง</button>
-            </div>
+            <!-- <div class="uk-column-1-2@s uk-column-1-3@m uk-column-1-4@l">
+              <div class="thai_font uk-text-left">
+                <button class="uk-button uk-button-text thai_font"> อ่านเพิ่มเติม</button>
+              </div>
+              <div class="">
+                <button class="uk-button uk-button-text thai_font"> </button>
+              </div>
+              <div class="">
+                <button class="uk-button uk-button-text thai_font"> </button>
+              </div>
+              <div class="thai_font uk-text-left">
+                <button class="uk-button uk-button-text thai_font"> ตั้งค่ากล่อง</button>
+              </div>
+            </div> -->
           </div>
         </div>
+        <br>
       </div>
-      <br>
+      <br> {% endfor %}
     </div>
-    <br>
-  {% endfor %}
+    <!--            {% if box.status_color == "เขียว" %}
+<div class="thai_font uk-text-left">
+  <p><span id="stat" class="uk-badge" style="background-color: #33691E
+  " >Good</span></p>
 </div>
-<!--  <div class="uk-grid">
-  <div class="uk-width-1-2">
-    <div>
-      <div class="uk-card uk-card-default uk-card-hover uk-card-body">
-        <h3 class="uk-card-title">Default</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-      </div>
-    </div>
+{% elif box.status_color == "ส้ม" %}
+<div class="thai_font uk-text-left">
+  <p><span id="stat" class="uk-badge" style="background-color: #FF5722
+  " >Warning</span></p>
+</div>
+{% else %}  <div class="thai_font uk-text-left">
+<p><span id="stat" class="uk-badge" style="background-color: #E53935" >Danger</span></p>
+</div>
+{% endif %} -->
+    <!--  <div class="uk-grid">
+<div class="uk-width-1-2">
+<div>
+  <div class="uk-card uk-card-default uk-card-hover uk-card-body">
+    <h3 class="uk-card-title">Default</h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
   </div>
-  <div class="uk-width-1-2">
-    <div>
-      <div class="uk-card uk-card-default uk-card-hover uk-card-body">
-        <h3 class="uk-card-title">Default</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-      </div>
-    </div>
+</div>
+</div>
+<div class="uk-width-1-2">
+<div>
+  <div class="uk-card uk-card-default uk-card-hover uk-card-body">
+    <h3 class="uk-card-title">Default</h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
   </div>
+</div>
+</div>
 </div>
 -->
-<br>
-<br>
-</div>
-<!-- end container -->
-<br>
-<br>
+    <br>
+    <br>
+  </div>
+  <!-- end container -->
+  <br>
+  <br>
 </div>
 <!-- <div id="fb-root"></div> -->
 <!--
@@ -164,38 +203,38 @@
 {% endfor %}</div> -->
 <!-- </div> -->
 <script type="text/javascript">
-$(document).ready(function() {
-// $('#a').show();
-// $('#b').hide();
-// $('#c').hide();
-// $('#d').hide();
-console.log("reqdt");
-// $('#profile').change(function() {
-var choice = jQuery('#stat').text();
-if (choice == "Good") {
-// alert(choice);
-$("#stat").attr('style',  'background-color:#33691E');
-
-} else if (choice == "Profile B") {
-// alert(choice);
-$('#a').hide();
-$('#b').show();
-$('#c').hide();
-$('#d').hide();
-} else if (choice == "Profile C") {
-// alert(choice);
-$('#a').hide();
-$('#b').hide();
-$('#c').show();
-$('#d').hide();
-} else if (choice == "Profile D") {
-// alert(choice);
-$('#a').hide();
-$('#b').hide();
-$('#c').hide();
-$('#d').show();
-}
-// }
-// );
-});</script>
+  $(document).ready(function() {
+    // $('#a').show();
+    // $('#b').hide();
+    // $('#c').hide();
+    // $('#d').hide();
+    console.log("reqdt");
+    // $('#profile').change(function() {
+    var choice = jQuery('#stat').text();
+    if (choice == "Good") {
+      // alert(choice);
+      $("#stat").attr('style', 'background-color:#33691E');
+    } else if (choice == "Profile B") {
+      // alert(choice);
+      $('#a').hide();
+      $('#b').show();
+      $('#c').hide();
+      $('#d').hide();
+    } else if (choice == "Profile C") {
+      // alert(choice);
+      $('#a').hide();
+      $('#b').hide();
+      $('#c').show();
+      $('#d').hide();
+    } else if (choice == "Profile D") {
+      // alert(choice);
+      $('#a').hide();
+      $('#b').hide();
+      $('#c').hide();
+      $('#d').show();
+    }
+    // }
+    // );
+  });
+</script>
 {% endblock %}

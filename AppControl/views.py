@@ -5,6 +5,7 @@ from .forms import ProfileForm
 from django.shortcuts import redirect
 from django.core import serializers
 import json
+import random
 # Create your views here.
 
 def getdata(request,nodeid,temp,humi,key):
@@ -63,3 +64,7 @@ def getprogram(request):
 	data = Profile.objects.all().values('day','temp','humi','ontime','lred','lgreen','lblue')[:1:1]
 	print(data)
 	return HttpResponse(data)
+def genSN(request):
+	x = random.randint(1,10000000000)
+	print(x)
+	return HttpResponse(x)

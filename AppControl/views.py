@@ -6,6 +6,7 @@ from django.shortcuts import redirect
 from django.core import serializers
 import json
 import random
+from boxapp.models import Box
 # Create your views here.
 
 def getdata(request,nodeid,temp,humi,key):
@@ -68,8 +69,8 @@ def genSN(request):
 	x = random.randint(1,10000000000)
 	y=("%010d"%x)
 	print(y)
-	sn = Sn.objects.create(
-		sn=y,
+	sn = Box.objects.create(
+		code=y,
 		)
 	sn.save()
 	print("S/N Save")

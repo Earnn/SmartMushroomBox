@@ -28,7 +28,7 @@ def add_box( request):
 
 		if boxform.is_valid():
 			try:
-				obj = Box.objects.get(code=boxform.cleaned_data['code'],password = boxform.cleaned_data['password'])
+				obj = Box.objects.get(code=boxform.cleaned_data['code'])
 				box = Box.objects.filter(code=boxform.cleaned_data['code'],password = boxform.cleaned_data['password']).update(owner=request.user)
 
 				return redirect('add_box_profile', pk=obj.pk)

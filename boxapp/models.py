@@ -13,7 +13,7 @@ class Box(models.Model):
 
     )
 	name = models.CharField(max_length=20,blank=True,null=True)
-	code = models.CharField(max_length=20)
+	code = models.CharField(max_length=20,unique=True)
 	password = models.CharField(max_length=20,blank=True)
 	profile =models.CharField(max_length=100,null=True,choices=CHOICES,blank=False,default='Profile A')
 	temporature = models.DecimalField(max_digits=15, decimal_places=2,blank=True,null=True)

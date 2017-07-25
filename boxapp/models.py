@@ -31,7 +31,7 @@ class CreateBoxModelForm(ModelForm):
 		model = Box
 		fields = [
 			"code",
-			"password",
+			#"password",
 		]
 		widgets = {'code': TextInput(attrs={'placeholder': 'serial number','class':'uk-input'}),'password': TextInput(attrs={'placeholder': 'password','class':'uk-input'})}
 

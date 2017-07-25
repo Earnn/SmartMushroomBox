@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Box,Profile
+from .models import Box,Profile,Sn
 from .forms import ProfileForm
 from django.shortcuts import redirect
 from django.core import serializers
@@ -66,5 +66,12 @@ def getprogram(request):
 	return HttpResponse(data)
 def genSN(request):
 	x = random.randint(1,10000000000)
-	print(x)
-	return HttpResponse(x)
+	y=("%010d"%x)
+	print(y)
+	sn = Sn.objects.create(
+		sn=y,
+		)
+	sn.save()
+	print("S/N Save")
+	#return HttpResponse(x)
+	return render(request, 'sn.html', {'sn':y})

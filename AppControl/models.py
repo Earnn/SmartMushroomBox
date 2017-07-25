@@ -16,3 +16,7 @@ class Profile(models.Model):
     lred    = models.IntegerField(default=0)
     lgreen  = models.IntegerField(default=0)
     lblue   = models.IntegerField(default=0)
+
+class Sn(models.Model):
+    sn = models.CharField(default=0,blank=False,max_length=10)
+    

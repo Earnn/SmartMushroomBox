@@ -67,3 +67,9 @@ def delete_box(request, pk):
     item.delete()
 # <!--   <button style="float: right;" class="button btn-default"> <a style="color: black" href="{% url 'delete_box' box.id %}">Delete me</a></button> -->
     return HttpResponseRedirect('/mushroom/mybox')
+
+def buybox( request):
+	return render(request, 'buy.html')
+
+def contact( request):
+	return render(request, 'contact.html')

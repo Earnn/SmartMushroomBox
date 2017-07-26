@@ -19,6 +19,7 @@
   <script type='text/javascript' src="{% static 'js/js_uikit/uikit.min.js' %}"></script>
   <script type='text/javascript' src="{% static 'js/js_uikit/uikit-icons.js' %}"></script>
   <script type='text/javascript' src="{% static 'js/js_uikit/uikit-icons.min.js' %}"></script>
+
   <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.27/js/uikit.min.js"></script>
   <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.27/js/uikit-icons.min.js"></script>
   <!-- <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script> -->
@@ -145,6 +146,33 @@
         /*text-indent: 40px;*/
     }
 
+
+.social-contact {
+
+}
+.social-contact ul {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+.social-contact ul li {
+    text-align: center;
+    padding: 20px 10px;
+      display:inline;
+}
+.social-contact ul li a {
+    color: #191919;
+    transition: .2s all ease-in-out;
+    
+}
+
+
+.social-contact ul li a:hover {
+    color: #fe9126;
+    
+}
+
+
     @media screen and (max-width: 640px) {
         img {
             width: 100%;
@@ -178,6 +206,8 @@
             text-align: center;
         }*/
 
+       
+
     }
 
      @media screen and (min-width: 641px) and (max-width: 992px) {
@@ -188,6 +218,7 @@
             margin-top: -7%;
             margin-bottom: -7%;
         }
+
      }
 
       @media screen and (min-width: 993px) {
@@ -199,6 +230,8 @@
             margin-bottom: -8%;
 
         }
+
+      
      }
      .box-label{
        color: #BDBDBD;
@@ -230,7 +263,16 @@
                                 <div class="col-md-3">
                                     <div class="action pull-right">
                                         <ul>
-                                            <li><a href="{% url 'change_password' %}"><i class="fa fa-user"></i> {{user.username}}</a></li>
+                                            <li><a ><i class="fa fa-user"></i> {{user.username}}</a>
+
+ <div uk-dropdown="mode: click" >
+    <ul class="uk-nav uk-dropdown-nav  ">
+        <li ><a href="{% url 'change_password' %}" class="thai_font">เปลี่ยน Password</a></li>
+   
+    </ul>
+</div>
+
+                                            </li>
                                             <li><a href="{% url 'logout' %}">Logout <i class="fa fa-sign-out"></i> </a></li>
                                         </ul>
                                     </div>

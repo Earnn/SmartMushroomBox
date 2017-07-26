@@ -10,15 +10,29 @@ from django.http import HttpResponseRedirect,HttpResponse
 from django.contrib import messages
 from .models import *
 
+
 @login_required
 def home( request):
-	return render(request, 'home.html')
+	# username,mail = request.user.username.split("@")
+	username= request.user.username
+
+	return render(request, 'home.html',{'username':username})
 
 @login_required
 def mybox( request):
-	box_list = Box.objects.all()
+	try:
+		box_list = Box.objects.filter(owner=request.user)
+		print (box_list)
+		return render(request, 'mybox.html',{'box_list':box_list})
+	except Box.DoesNotExist as e:
+		messages.error(request, 'คุณยังไม่มีกล่องเห็ด')
+	else:
+		pass
+	finally:
+		pass
 	
-	return render(request, 'mybox.html',{'box_list':box_list})
+	# box_list = Box.objects.all()
+	return render(request, 'mybox.html',)
 
 @login_required
 def add_box( request):
@@ -29,7 +43,7 @@ def add_box( request):
 		if boxform.is_valid():
 			try:
 				obj = Box.objects.get(code=boxform.cleaned_data['code'])
-				box = Box.objects.filter(code=boxform.cleaned_data['code'],password = boxform.cleaned_data['password']).update(owner=request.user)
+				box = Box.objects.filter(code=boxform.cleaned_data['code']).update(owner=request.user)
 
 				return redirect('add_box_profile', pk=obj.pk)
 			except Box.DoesNotExist:
@@ -59,6 +73,13 @@ def add_box_profile(request, pk):
 
 	return render(request, 'addprofile.html',{'boxform':boxform})
 
+@login_required
+def detail_box(request,pk):
+	# username,mail = request.user.username.split("@")
+	box_obj = Box.objects.get(id=pk)
+	return render(request, 'moredetail.html',{'box_obj':box_obj})
+	
+	# return render(request, 'moredetail.html',{'username':username})
 
 @login_required
 def delete_box(request, pk):
@@ -67,3 +88,24 @@ def delete_box(request, pk):
     item.delete()
 # <!--   <button style="float: right;" class="button btn-default"> <a style="color: black" href="{% url 'delete_box' box.id %}">Delete me</a></button> -->
     return HttpResponseRedirect('/mushroom/mybox')
+
+def buy_box(request):
+	buyform = BuyBoxModelForm()
+	if request.method == 'POST':
+		buyform = BuyBoxModelForm(request.POST, request.FILES)
+		if buyform.is_valid():
+			buy_obj = Buy.objects.create(
+				name=buyform.cleaned_data['name'],
+				address = buyform.cleaned_data['address'],
+				email = buyform.cleaned_data['email'],
+				phone_number = buyform.cleaned_data['phone_number'],
+				order_amount = buyform.cleaned_data['order_amount'],
+				)
+			messages.success(request, 'คุณได้สั่งซื้อเรียบร้อยแล้ว', extra_tags='alert')
+		else:
+			print("not vali")
+
+	return render(request, 'buy.html',{'buyform':buyform})
+
+def contact(request):
+	return render(request, 'contact.html')

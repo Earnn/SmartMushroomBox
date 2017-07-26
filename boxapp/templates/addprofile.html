@@ -15,8 +15,8 @@
                     <li><a href="/mushroom/" class="act">Home</a></li>
                     <li><a href="/mushroom/mybox/">My Box</a></li>
                     <li class="active"><a href="/mushroom/add/">Add Box</a></li>
-                    <li><a href="mail.html">Product</a></li>
-                    <li><a href="mail.html">Contact</a></li>
+                    <li ><a href="/mushroom/buyproduct">Product</a></li>
+                    <li class="active"><a href="/mushroom/contact">Contact</a></li>
                 </ul>
             </div>
         </nav>
@@ -68,7 +68,7 @@
                             {{ boxform.profile }} {% for x in boxform.choices %} {{x}} {% endfor %}
                         </div>
                     </div>
-                </form>
+               
                 <div id="a">
                     <h3 class="">Profile A</h3>
                     <p>Lorem ipsum sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
@@ -88,8 +88,9 @@
                 <div class="uk-text-center">
                     <button class="uk-button uk-button-default ">Cancel</button>
 
-                    <button class="uk-button uk-button-primary ">Create Box</button>
+                    <button type="submit" class="uk-button uk-button-primary ">Create Box</button>
                 </div>
+                 </form>
                 <br>
             </div>
         </div>

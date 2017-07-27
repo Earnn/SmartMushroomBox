@@ -7,6 +7,7 @@ urlpatterns = [
 	url(r'^add/?$', views.add_box, name='add_box'),
 	url(r'^mybox/?$', views.mybox, name='mybox'),
 	url(r'^buyproduct/?$', views.buy_box, name='buy_box'),
+	url(r'^buy/success/?$', views.buybox_success, name='buybox_success'),
 	url(r'^contact/?$', views.contact, name='contact'),
 	url(r'^detail/(?P<pk>[0-9]+)/?$', views.detail_box, name='detail_box'),
 	url(r'^add/profile/(?P<pk>\d+)/?$', views.add_box_profile, name='add_box_profile'),

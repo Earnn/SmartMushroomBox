@@ -89,7 +89,6 @@ def delete_box(request, pk):
 # <!--   <button style="float: right;" class="button btn-default"> <a style="color: black" href="{% url 'delete_box' box.id %}">Delete me</a></button> -->
     return HttpResponseRedirect('/mushroom/mybox')
 
-<<<<<<< HEAD
 def buy_box(request):
 	buyform = BuyBoxModelForm()
 	if request.method == 'POST':
@@ -114,10 +113,10 @@ def contact(request):
 
 def buybox_success(request):
 	return render(request, 'buybox_success.html')
-=======
+
 def buybox( request):
 	return render(request, 'buy.html')
 
 def contact( request):
 	return render(request, 'contact.html')
->>>>>>> 5ec124b3bbcf32848260bda9b09fa9e36650428a
+

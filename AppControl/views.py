@@ -11,17 +11,13 @@ from boxapp.models import Box
 
 def getdata(request,nodeid,temp,humi,key):
 	#node = request.POST['nodeid']
-	c_temp = "100"
-	c_humi = "200"
-	if float(temp) >= 20:
-		c_temp = "101"
-	if float(temp) <= 16:
-		c_temp = "100"
-	if float(humi) <= 40:
-		c_humi = "201"
-	if float(humi) >= 80:
-		c_humi = "200"
-	command = "%s,%s"%(c_temp,c_humi)
+	temp = "20"
+	humi = "80"
+	ontime = "14"
+	lred = "999"
+	lgreen = "999"
+	lblue = "999"
+	command = "%s,%s,%s,%s,%s,%s"%(temp,humi,ontime,lred,lgreen,lblue)
 	if key=="2345678909876543234567898765":
 		data_box = Box(
 			nodeid = nodeid ,

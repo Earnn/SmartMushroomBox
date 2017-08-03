@@ -9,6 +9,7 @@ class Box(models.Model):
     class Meta:
         ordering = ['nodeid']
 class Profile(models.Model):
+    name    = models.CharField(max_length=20,default=0)
     day     = models.CharField(max_length=3,blank=False,default=0.0)
     temp    = models.IntegerField(default=0.0)
     humi    = models.IntegerField(default=0.0)

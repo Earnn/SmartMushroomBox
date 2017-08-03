@@ -1,16 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-{% load static %}
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{% block title %}Simple is Better Than Complex{% endblock %}</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
-  <!-- <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script> -->
-  <!--       <script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> -->
-  <!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script> -->
+    {% load static %}
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{% block title %}Simple is Better Than Complex{% endblock %}</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+        <!-- <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script> -->
+        <!--       <script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> -->
+        <!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script> -->
+        <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+        <script type='text/javascript' src="{% static 'js/index.js' %}"></script>
+        <script type='text/javascript' src="{% static 'js/js_uikit/uikit.js' %}"></script>
+        <script type='text/javascript' src="{% static 'js/js_uikit/uikit.min.js' %}"></script>
+        <script type='text/javascript' src="{% static 'js/js_uikit/uikit-icons.js' %}"></script>
+        <script type='text/javascript' src="{% static 'js/js_uikit/uikit-icons.min.js' %}"></script>
+        <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.27/js/uikit.min.js"></script>
+        <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.27/js/uikit-icons.min.js"></script>
+        <!-- <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script> -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href='//fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
   <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
 
@@ -19,6 +30,7 @@
   <script type='text/javascript' src="{% static 'js/js_uikit/uikit.min.js' %}"></script>
   <script type='text/javascript' src="{% static 'js/js_uikit/uikit-icons.js' %}"></script>
   <script type='text/javascript' src="{% static 'js/js_uikit/uikit-icons.min.js' %}"></script>
+
   <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.27/js/uikit.min.js"></script>
   <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.27/js/uikit-icons.min.js"></script>
   <!-- <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script> -->
@@ -26,95 +38,109 @@
   <link href='//fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
   <!--  <link href="//fonts.googleapis.com/
             css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet"> -->
-  <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,700italic,700,400italic,300italic,300' rel='stylesheet' type='text/css'>
-  <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
-
-  <link href="{% static 'css/style.css' %}" rel="stylesheet">
-  <link href="{% static 'css/css_home/style.css' %}" rel="stylesheet">
-  <link href="{% static 'css/css_home/responsive.css' %}" rel="stylesheet">
-  <link href="{% static 'css/css_uikit/uikit.css' %}" rel="stylesheet">
-  <link href="{% static 'css/css_uikit/uikit.min.css' %}" rel="stylesheet">
-  <!-- <link href="{% static 'css/css_uikit/uikit-rtl.css' %}?v=00001" rel="stylesheet"> -->
-  <!-- <link href="{% static 'css/css_uikit/uikit-rtl.min.css' %}?" rel="stylesheet"> -->
-  <link href="https://fonts.googleapis.com/css?family=Kanit:300" rel="stylesheet">
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-
-<body>
-     <style type="text/css">
-    .agile-login {
-        float: right;
-        width: 40%;
-        text-align: center;
-        padding: 9px 0;
-    }
-
-    .agile-login ul li {
-        display: inline-block;
-        padding: 0em 1em;
-    }
-
-    .agile-login ul li a {
-        font-size: 1em;
-        text-transform: capitalize;
-        color: #fff;
-        text-decoration: none;
-    }
-
-    .agileits_header {
-        padding: 12px 0 8px;
-    }
-
-    .agileits_header {
-        background: white;
-        padding: 12px 0;
-    }
-
-    .product_list_header {
-        float: right;
-    }
-
-    .bghead {
-        background-image: url('{% static "images/head2.jpg"%}');
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
-        left: 50%;
-        top: -50%;
-        /*margin-left: -512px;   /* 50% */
-        */
-    }
-
-    .navigation {
-        /*background: #1e1e1e;*/
-        text-align: center;
-    }
-
-    .navbar .navbar-nav {
-        display: inline-block;
-        float: none;
-        vertical-align: top;
-    }
-
-    .item.container {
-        margin: 0 auto;
-        max-width: 1280px;
-        width: 70%;
-    }
-    /*@media only screen and (min-width: 601px) .item.container {
+            <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,700italic,700,400italic,300italic,300' rel='stylesheet' type='text/css'>
+            <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
+            <link href="{% static 'css/style.css' %}" rel="stylesheet">
+            <link href="{% static 'css/css_home/style.css' %}" rel="stylesheet">
+            <link href="{% static 'css/css_home/responsive.css' %}" rel="stylesheet">
+            <link href="{% static 'css/css_uikit/uikit.css' %}" rel="stylesheet">
+            <link href="{% static 'css/css_uikit/uikit.min.css' %}" rel="stylesheet">
+            <!-- <link href="{% static 'css/css_uikit/uikit-rtl.css' %}?v=00001" rel="stylesheet"> -->
+            <!-- <link href="{% static 'css/css_uikit/uikit-rtl.min.css' %}?" rel="stylesheet"> -->
+            <link href="https://fonts.googleapis.com/css?family=Kanit:300" rel="stylesheet">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        </head>
+        <body>
+            <style type="text/css">
+            .agile-login {
+            float: right;
+            width: 40%;
+            text-align: center;
+            padding: 9px 0;
+            }
+            .agile-login ul li {
+            display: inline-block;
+            padding: 0em 1em;
+            }
+            .agile-login ul li a {
+            font-size: 1em;
+            text-transform: capitalize;
+            color: #fff;
+            text-decoration: none;
+            }
+            .agileits_header {
+            padding: 12px 0 8px;
+            }
+            .agileits_header {
+            background: white;
+            padding: 12px 0;
+            }
+            .product_list_header {
+            float: right;
+            }
+            .bghead {
+            background-image: url('{% static "images/head2.jpg"%}');
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            left: 50%;
+            top: -50%;
+            /*margin-left: -512px;   /* 50% */
+            */
+            }
+            .navigation {
+            /*background: #1e1e1e;*/
+            text-align: center;
+            }
+            .navbar .navbar-nav {
+            display: inline-block;
+            float: none;
+            vertical-align: top;
+            }
+            .item.container {
+            margin: 0 auto;
+            max-width: 1280px;
+            width: 70%;
+            }
+            /*@media only screen and (min-width: 601px) .item.container {
             width: 85%;
             }
             @media only screen and (min-width: 993px) .item.container {
             width: 70%;
             }
             */
-    /*
+            /*
             .navbar .navbar-collapse {
             text-align: center;
             }*/
+
+            .thai_font {
+            font-family: 'Kanit', sans-serif;
+            }
+            .thai_font-title {
+            font-family: 'Kanit', sans-serif;
+            text-align: center;
+            color: white;
+            font-size: 50px;
+            }
+            .thai_font.text {
+            font-size: 20px;
+            text-indent: 40px;
+            }
+            .thai_font.text-center {
+            font-size: 20px;
+            /*text-indent: 40px;*/
+            text-align: center;
+            }
+            .thai_font.text2 {
+            font-size: 20px;
+            /*text-indent: 40px;*/
+            }
+            @media screen and (max-width: 640px) {
+            img {
+
 
     .thai_font {
         font-family: 'Kanit', sans-serif;
@@ -145,38 +171,69 @@
         /*text-indent: 40px;*/
     }
 
+
+.social-contact {
+
+}
+.social-contact ul {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+.social-contact ul li {
+    text-align: center;
+    padding: 20px 10px;
+      display:inline;
+}
+.social-contact ul li a {
+    color: #191919;
+    transition: .2s all ease-in-out;
+    
+}
+
+
+.social-contact ul li a:hover {
+    color: #fe9126;
+    
+}
+
+
     @media screen and (max-width: 640px) {
         img {
             width: 100%;
             height: auto;
-        }
-
-        .img-logo {
-             width: 60%;
+            }
+            .img-logo {
+            width: 60%;
             height: auto;
-        }
-
-        .logo-head{
+            }
+            .logo-head{
             width: 100%;
             height: auto;
             text-align: center;
             margin-top: -3%;
             margin-bottom: -3%;
-        }
-    }
-
-    @media screen and (min-width: 641px) {
-
-        .img-logo-news {
+            }
+            }
+            @media screen and (min-width: 641px) {
+            .img-logo-news {
             width: 60%;
             height: auto;
             text-align: center;
-        }
- /*       .img-logo-news {
+            }
+            /*       .img-logo-news {
             width: 60%;
             height: auto;
             text-align: center;
+
+            }*/
+            }
+            @media screen and (min-width: 641px) and (max-width: 992px) {
+            .logo-head{
+
         }*/
+
+       
 
     }
 
@@ -187,17 +244,55 @@
             text-align: center;
             margin-top: -7%;
             margin-bottom: -7%;
+            }
+            }
+            @media screen and (min-width: 993px) {
+            .logo-head{
+
         }
+
      }
 
       @media screen and (min-width: 993px) {
         .logo-head{
+
             width: 100%;
             height: auto;
             text-align: center;
             margin-top: -5%;
             margin-bottom: -8%;
 
+            }
+            }
+            .box-label{
+            color: #BDBDBD;
+            font-weight: bold;
+            }
+            
+            .social-contact {
+            }
+            .social-contact ul {
+            list-style: none;
+            padding: 0px;
+            margin: 0px;
+            }
+            .social-contact ul li {
+            text-align: center;
+            padding: 20px 10px;
+            display:inline;
+            }
+            .social-contact ul li a {
+            color: #191919;
+            transition: .2s all ease-in-out;
+            
+            }
+            .social-contact ul li a:hover {
+            color: #fe9126;
+            
+            }
+            </style>
+            <header>
+    <style type="text/css">
         }
      }
      .box-label{
@@ -206,6 +301,7 @@
      }
     </style>
   <header>
+
                 {% if user.is_authenticated %}
                     <div class="top-bar">
                         <div class="container">
@@ -213,7 +309,6 @@
                                 <div class="col-md-3">
                                     <div class="social pull-left">
                                         <ul>
-
                                             <li><a href=""><i class="fa fa-facebook"></i></a></li>
                                             <li><a href=""><i class="fa fa-twitter"></i></a></li>
                                             <li><a href=""><i class="fa fa-google-plus"></i></a></li>
@@ -225,12 +320,28 @@
                                     <div class="logo-brand ">
                                         <img class="logo-head" src="{% static "images/logo-head.png" %}"  >
                                     </div>
-
                                 </div>
                                 <div class="col-md-3">
                                     <div class="action pull-right">
                                         <ul>
                                             <li><a href="{% url 'change_password' %}"><i class="fa fa-user"></i> {{user.username}}</a></li>
+                                            
+                                            <div uk-dropdown="mode: click" >
+                                                <ul class="uk-nav uk-dropdown-nav  ">
+                                                    <li ><a href="{% url 'change_password' %}" class="thai_font">เปลี่ยน Password</a></li>
+                                                    
+                                                </ul>
+                                            </div>
+                                            <li><a ><i class="fa fa-user"></i> {{user.username}}</a>
+
+ <div uk-dropdown="mode: click" >
+    <ul class="uk-nav uk-dropdown-nav  ">
+        <li ><a href="{% url 'change_password' %}" class="thai_font">เปลี่ยน Password</a></li>
+   
+    </ul>
+</div>
+
+                                            </li>
                                             <li><a href="{% url 'logout' %}">Logout <i class="fa fa-sign-out"></i> </a></li>
                                         </ul>
                                     </div>
@@ -269,25 +380,46 @@
                     {% endif %}
                     <hr class="uk-divider-icon ">
                 </header>
-  <main>
-    {% block content %} {% endblock %}
-  </main>
-  <div class="uk-section uk-section-secondary uk-light" style="background-color:#1A1A1A">
-    <div class="uk-container">
-      <div class="uk-column-1-2@s uk-column-1-3@m uk-column-1-3@l">
-        <h3 class="thai_font" style="color: #C4A26C">ติดต่อเรา</h3>
-        <p>คณะวิทยาศาสตร์และเทคโนโลยี มธ.ศูนย์รังสิต สาขาวิทยาการคอมพิวเตอร์ 02-986-9156</p>
-        <p>คณะวิทยาศาสตร์และเทคโนโลยี มธ.ศูนย์รังสิต 02-564-4440-59 ต่อ 2010</p>
-        <p>www.sci.tu.ac.th</p>
-        <h3 class="thai_font" style="color: #C4A26C">ติดต่อเรา</h3>
-        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <h3 class="thai_font" style="color: #C4A26C">ติดต่อเรา</h3>
-        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-          non proident. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.</p>
-      </div>
-
-    </div>
-  </div>
-</body>
-
-</html>
+                <main>
+                    {% block content %} {% endblock %}
+                </main>
+                <div class="uk-section uk-section-secondary uk-light" style="background-color:#1A1A1A">
+                    <!--  <div class="uk-width-1-2@s uk-width-1-3@m uk-width-1-3@l">
+                        <div></div>
+                        <div></div>
+                        <div>
+                            <h3 class="thai_font" style="color: #C4A26C">ติดต่อเรา</h3>
+                            <p>คณะวิทยาศาสตร์และเทคโนโลยี มธ.ศูนย์รังสิต สาขาวิทยาการคอมพิวเตอร์ 02-986-9156</p>
+                            <p>คณะวิทยาศาสตร์และเทคโนโลยี มธ.ศูนย์รังสิต 02-564-4440-59 ต่อ 2010</p>
+                            <p>www.sci.tu.ac.th</p> <div class="uk-card uk-card-default"> </div>
+                            
+                        </div>
+                    </div> -->
+                    <div class="uk-container">
+                        <div class="uk-grid uk-child-width-1-1">
+                            
+                            
+                            <div class="uk-text-center">  <h3 class="thai_font" style="color: #C4A26C">ติดต่อเรา</h3>
+                                <p>คณะวิทยาศาสตร์และเทคโนโลยี มธ.ศูนย์รังสิต สาขาวิทยาการคอมพิวเตอร์ 02-986-9156</p>
+                                <p>คณะวิทยาศาสตร์และเทคโนโลยี มธ.ศูนย์รังสิต 02-564-4440-59 ต่อ 2010</p>
+                                <p>www.sci.tu.ac.th</p> </div>
+                                
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <!--           <div class="uk-child-width-expand@s " uk-grid>
+                        <div class="uk-grid-item-match">
+                            
+                        </div>
+                        <div class="uk-panel">
+                            <h3 class="thai_font" style="color: #C4A26C">ติดต่อเรา</h3>
+                            <p>คณะวิทยาศาสตร์และเทคโนโลยี มธ.ศูนย์รังสิต สาขาวิทยาการคอมพิวเตอร์ 02-986-9156</p>
+                            <p>คณะวิทยาศาสตร์และเทคโนโลยี มธ.ศูนย์รังสิต 02-564-4440-59 ต่อ 2010</p>
+                            <p>www.sci.tu.ac.th</p>
+                        </div>
+                    </div> -->
+                    
+                </div>
+            </body>
+        </html>

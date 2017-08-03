@@ -1,36 +1,34 @@
 {% extends 'base2.html' %} {% load static %} {% block content %}{% load widget_tweaks %}
-<div class="navigation">
-    <div class="container">
-        <nav class="navbar navbar-default">
-            <div class="navbar-header nav_2">
-                <button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
+    <div class="navigation">
+        <div class="container">
+            <nav class="navbar navbar-default">
+                <div class="navbar-header nav_2">
+                    <button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
-                </button>
-            </div>
-            <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
-                <ul class="nav navbar-nav">
-                    <li><a href="/mushroom/" class="act">Home</a></li>
-                    <li><a href="/mushroom/mybox/">My Box</a></li>
-                    <li class="active"><a href="/mushroom/add/">Add Box</a></li>
-                    <li><a href="mail.html">Product</a></li>
-                    <li><a href="mail.html">Contact</a></li>
-
-
-                </ul>
-            </div>
-        </nav>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+                    <ul class="nav navbar-nav">
+                        <li><a href="/mushroom/" class="act">Home</a></li>
+                        <li><a href="/mushroom/mybox/">My Box</a></li>
+                        <li class="active"><a href="/mushroom/add/">Add Box</a></li>
+                        <li ><a href="/mushroom/buyproduct">Product</a></li>
+                        <li class=""><a href="/mushroom/contact">Contact</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
     </div>
-</div>
-<div class="bghead ">
-    <br>
-    <!-- <h2 style="" class="thai_font-title">ก ล่ อ ง เ ห็ ด อั จ ฉ ริ ย ะ</h2> -->
-    <h2 style="letter-spacing: 30px;" class="thai_font-title">กล่องเห็ดอัจฉริยะ</h2>
-    <h3 style="text-align: center; color: white;" class="thai_font">เพิ่มกล่องเห็ดของคุณ</h3>
-    <br>
-</div>
+    <div class="bghead ">
+        <br>
+        <!-- <h2 style="" class="thai_font-title">ก ล่ อ ง เ ห็ ด อั จ ฉ ริ ย ะ</h2> -->
+        <h2 style="letter-spacing: 30px;" class="thai_font-title">กล่องเห็ดอัจฉริยะ</h2>
+        <h3 style="text-align: center; color: white;" class="thai_font">เพิ่มกล่องเห็ดของคุณ</h3>
+        <br>
+    </div>
 </header>
 <div class="uk-background-muted">
     <div class="container uk-width-1-1@s uk-width-1-2@m uk-width-1-3@l ">
@@ -42,13 +40,8 @@
                         <!-- <div class="uk-align-center"> -->
                         <h3 class="uk-card-title uk-margin-remove-bottom thai_font ">กล่องเห็ดอัจฉริยะ</h3>
                         <p class="uk-text-meta uk-margin-remove-top uk-margin-remove-bottom thai_font">
-                          {% if messages %}
-                    <ul class="messages">
-                        {% for message in messages %}
-                            <li class="{{ message.tags }} thai_font">{{ message }}</li>
-                        {% endfor %}
-                    </ul>
-                {% endif %}
+                            กรุณากรอก Serial number
+                            
                         </p>
                         <!-- </div> -->
                     </div>
@@ -57,15 +50,20 @@
                     <div class="form-group ">
                         {{boxform.code}}
                     </div>
-                    
+                    {% if messages %}
+                        <ul class="messages">
+                            {% for message in messages %}
+                                <li class="{{ message.tags }} thai_font">{{ message }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
                 </div>
                 <div class="uk-card-footer">
                     <button type="submit" class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom" style="background-color: #0AC986;">Create box</button>
-                     <p class="thai_font uk-text-center" >
-                       ยังไม่มีใช่ไหม ?
-                             <button class="uk-button uk-button-text thai_font" >คลิกที่นี่ </button>
-                        </p>
-
+                    <p class="thai_font uk-text-center" >
+                        ยังไม่มีรหัสใช่ไหม ?
+                        <a href="/mushroom/buyproduct"  class="uk-button uk-button-text thai_font"  >คลิกที่นี่ </a>
+                    </p>
                 </div>
             </div>
         </form>
@@ -75,7 +73,6 @@
     {% csrf_token %}
     <div class="auth-box-form">
         <h1>Mushroom Box</h1>
-
         <input type="hidden" name="next" value="{{ next }}" />
         <p>
             <div class="form-group ">
@@ -90,5 +87,4 @@
         <br>
     </div>
 </form> -->
-
 {% endblock %}

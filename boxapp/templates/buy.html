@@ -1,0 +1,211 @@
+{% extends 'base2.html' %} {% load static %} {% block content %}{% load widget_tweaks %}
+<<<<<<< HEAD
+    <div class="navigation">
+        <div class="container">
+            <nav class="navbar navbar-default">
+                <div class="navbar-header nav_2">
+                    <button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
+
+<div class="navigation">
+    <div class="container">
+        <nav class="navbar navbar-default">
+            <div class="navbar-header nav_2">
+                <button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
+
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+                    <ul class="nav navbar-nav">
+                        <li><a href="/mushroom/" class="act">Home</a></li>
+                        <li><a href="/mushroom/mybox/">My Box</a></li>
+                        <li><a href="/mushroom/add/">Add Box</a></li>
+                        <li class="active"><a href="/mushroom/buyproduct">Product</a></li>
+                        <li><a href="/mushroom/contact">Contact</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div class="bghead ">
+        <br>
+        <!-- <h2 style="" class="thai_font-title">ก ล่ อ ง เ ห็ ด อั จ ฉ ริ ย ะ</h2> -->
+        <h2 style="letter-spacing: 30px;" class="thai_font-title">กล่องเห็ดอัจฉริยะ</h2>
+        <h3 style="text-align: center; color: white;" class="thai_font">สั่งซื้อกล่องเห็ดได้ที่นี่</h3>
+        <br>
+    </div>
+
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+                <ul class="nav navbar-nav">
+                    <li><a href="/mushroom/" class="act">Home</a></li>
+                    <li><a href="/mushroom/mybox/">My Box</a></li>
+                    <li><a href="/mushroom/add/">Add Box</a></li>
+                    <li class="active"><a href="/mushroom/buyproduct">Product</a></li>
+                    <li><a href="/mushroom/contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>
+<div class="bghead ">
+    <br>
+    <!-- <h2 style="" class="thai_font-title">ก ล่ อ ง เ ห็ ด อั จ ฉ ริ ย ะ</h2> -->
+    <h2 style="letter-spacing: 30px;" class="thai_font-title">กล่องเห็ดอัจฉริยะ</h2>
+    <h3 style="text-align: center; color: white;" class="thai_font">สั่งซื้อกล่องเห็ดได้ที่นี่</h3>
+    <br>
+</div>
+
+</header>
+<div class="container">
+    <div class="uk-section uk-section-default">
+        <div class="uk-container">
+            <h3 class="thai_font-title" style="color:black;">สั่งซื้อ Smart Mushroom Box</h3>
+            <div class="uk-grid-match uk-child-width-1-2@m" uk-grid>
+                <div>
+                    <div class="">
+                        <img class="img-logo uk-align-center uk-margin-remove-adjacent" src="{% static "images/box.jpg" %}">
+                    </div>
+                </div>
+                <div>
+                    <ul class="uk-list uk-list-bullet">
+                        <li class="thai_font text2">คุณจะได้รับตู้เย็นพร้อมกล่องเห็ด Smart Mushroom Box ช่วยเร่งการเจริญเติบโตของเห็ดถังเช่า</li>
+                        <li class="thai_font text2">1 ตู้สามารถบรรจุขวดโหลได้ประมาณ 30 ขวด</li>
+                    </ul>
+                    <div class="container">
+
+                        <form class="uk-form-stacked" id="buy_form" method="post" action="" >
+                            
+                            {% csrf_token %}
+                            <div class="uk-margin">
+                                <label class="uk-form-label thai_font" for="form-stacked-text">ชื่อ-นามสกุล</label>
+                                <div class="uk-form-controls">
+                                    {{buyform.name }}
+
+                        <form class="uk-form-stacked">
+                            <div class="uk-margin">
+                                <label class="uk-form-label thai_font" for="form-stacked-text">ชื่อ-นามสกุล</label>
+                                <div class="uk-form-controls">
+                                    <input class="uk-input" id="form-stacked-text" type="text" placeholder="ชื่อ-นามสกุล">
+
+                                </div>
+                            </div>
+                            <div class="uk-margin">
+                                <label class="uk-form-label thai_font" for="form-stacked-text">ที่อยู่</label>
+                                <div class="uk-form-controls">
+
+                                    {{buyform.address }}
+
+                                    <input class="uk-input" id="form-stacked-text" type="text" placeholder="ที่อยู่">
+
+                                </div>
+                            </div>
+                            <div class="uk-margin">
+                                <label class="uk-form-label thai_font" for="form-stacked-text">Email</label>
+                                <div class="uk-form-controls">
+
+                                    {{buyform.email }}
+
+                                    <input class="uk-input" id="form-stacked-text" type="text" placeholder="Email">
+
+                                </div>
+                            </div>
+                            <div class="uk-margin">
+                                <label class="uk-form-label thai_font" for="form-stacked-text">เบอร์โทร</label>
+                                <div class="uk-form-controls">
+
+                                    {{buyform.phone_number }}
+                                    <!-- <input class="uk-input" id="form-stacked-text" type="text" placeholder="เบอร์โทร"> -->
+
+                                    <input class="uk-input" id="form-stacked-text" type="text" placeholder="เบอร์โทร">
+
+                                </div>
+                            </div>
+                            <div class="uk-margin">
+                                <label class="uk-form-label thai_font" for="form-stacked-text">จำนวนที่สั่งซื้อ</label>
+                                <div class="uk-form-controls">
+
+                                    {{buyform.order_amount }}
+                                    <!-- <input class="uk-input" id="form-stacked-text" type="number" min="1"> -->
+                                    
+                                </div>
+                            </div>
+                            <div class="uk-margin">
+                                <!-- <button type="submit" class="uk-button uk-button-primary ">Buy Box</button> -->
+                                <button class="uk-button uk-button-primary uk-align-center " style="background-color: #2ecc71" uk-toggle="target: #modal-example" >สั่งซื้อ</button>
+                                <!-- This is the modal -->
+                                <div id="modal-example" uk-modal>
+                                    <div class="uk-modal-dialog uk-modal-body">
+                                        <h4 class="uk-modal-title thai_font uk-text-center" >สั่งซื้อ Smart Mushroom Box</h4>
+                                        <p class="thai_font uk-text-center " style="font-size: 18px;" >คุณต้องการจะสั่งซื้อ Smart Mushroom Box ใช่หรือไม่</p>
+                                        <p class="uk-text-center">
+                                            <button class="thai_font uk-button uk-button-default uk-modal-close" type="button">ยกเลิก</button>
+                                            <button  type="submit" onclick="form_submit()" class="thai_font uk-button uk-button-primary" style="background-color: #2ecc71">ซื้อเลย</button>
+
+                                    <input class="uk-input" id="form-stacked-text" type="number" min="1">
+                                </div>
+                            </div>
+                            <div class="uk-margin">
+                                <button class="uk-button uk-button-primary uk-align-center " style="background-color: #2ecc71" uk-toggle="target: #modal-example">สั่งซื้อ</button>
+                                <!-- This is the modal -->
+                                <div id="modal-example" uk-modal>
+                                    <div class="uk-modal-dialog uk-modal-body">
+                                        <h4 class="uk-modal-title thai_font" >สั่งซื้อ Smart Mushroom Box</h4>
+                                        <p class="thai_font uk-text-center " style="font-size: 18px;" >คุณต้องการจะสั่งซื้อ Smart Mushroom Box ใช่หรือไม่</p>
+                                        <p class="uk-text-center">
+                                            <button class="thai_font uk-button uk-button-default uk-modal-close" type="button">ยกเลิก</button>
+                                            <button class="thai_font uk-button uk-button-primary" type="button" style="background-color: #2ecc71">ซื้อเลย</button>
+
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            
+                        </form>    
+                <!--      {% if messages %}<ul class="messages">
+                        {% for message in messages %}
+                            <script>   UIkit.modal.alert('<h3 class="thai_font uk-text-center"> <i style="color:#2ECC71" class="fa fa-check-circle" aria-hidden="true"></i> คุณได้สั่งซื้อเรียบร้อยแล้ว  </h3 > <p class="thai_font uk-text-center">ทางเราจะติดต่อกลับผ่านทาง email หรือ โทรศัพท์ ที่คุณกรอกไว้</p>') </script>
+                        
+                        {% endfor %}
+                    </ul>
+            
+                {% endif %} -->
+                <h3 class="thai_font" style="color:black; text-align: left;">สอบถามรายละเอียดเพิ่มเติม</h3>
+                <dl class="uk-description-list" style="margin-top: -1%;">
+                    <dd> คณะวิทยาศาสตร์และเทคโนโลยี มธ.ศูนย์รังสิต สาขาวิทยาการคอมพิวเตอร์ 02-986-9156</dd>
+                    <!-- <dt>Description term</dt> -->
+                    <dd>คณะวิทยาศาสตร์และเทคโนโลยี มธ.ศูนย์รังสิต 02-564-4440-59 ต่อ 2010</dd>
+                    <dd>www.sci.tu.ac.th</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>
+</div><script type="text/javascript">
+function form_submit() {
+document.getElementById("buy_form").submit();
+}
+</script>
+{% endblock %} {% block script %} {% endblock script %}
+
+                        </form>
+                        <h3 class="thai_font" style="color:black; text-align: left;">สอบถามรายละเอียดเพิ่มเติม</h3>
+                        <dl class="uk-description-list" style="margin-top: -1%;">
+                            <dd> คณะวิทยาศาสตร์และเทคโนโลยี มธ.ศูนย์รังสิต สาขาวิทยาการคอมพิวเตอร์ 02-986-9156</dd>
+                            <!-- <dt>Description term</dt> -->
+                            <dd>คณะวิทยาศาสตร์และเทคโนโลยี มธ.ศูนย์รังสิต 02-564-4440-59 ต่อ 2010</dd>
+                            <dd>www.sci.tu.ac.th</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+

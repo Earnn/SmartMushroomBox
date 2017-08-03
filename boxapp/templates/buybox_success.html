@@ -1,0 +1,50 @@
+{% extends 'base2.html' %} {% load static %} {% block content %}{% load widget_tweaks %}
+<div class="navigation">
+    <div class="container">
+        <nav class="navbar navbar-default">
+            <div class="navbar-header nav_2">
+                <button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+                <ul class="nav navbar-nav">
+                    <li><a href="/mushroom/" class="act">Home</a></li>
+                    <li><a href="/mushroom/mybox/">My Box</a></li>
+                    <li><a href="/mushroom/add/">Add Box</a></li>
+                    <li ><a href="/mushroom/buyproduct">Product</a></li>
+                    <li class="active"><a href="/mushroom/contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>
+<div class="bghead ">
+    <br>
+    <!-- <h2 style="" class="thai_font-title">ก ล่ อ ง เ ห็ ด อั จ ฉ ริ ย ะ</h2> -->
+    <h2 style="letter-spacing: 30px;" class="thai_font-title">กล่องเห็ดอัจฉริยะ</h2>
+    <h3 style="text-align: center; color: white;" class="thai_font">สั่งซื้อสำเร็จ</h3>
+    <br>
+</div>
+</header>
+<div class="container">
+    <div class="uk-section uk-section-default">
+        <div class="uk-container uk-text-center">
+                <!--      {% if messages %}<ul class="messages">
+                        {% for message in messages %}
+                            <script>   UIkit.modal.alert('<h3 class="thai_font uk-text-center"> <i style="color:#2ECC71" class="fa fa-check-circle" aria-hidden="true"></i> คุณได้สั่งซื้อเรียบร้อยแล้ว  </h3 > <p class="thai_font uk-text-center">ทางเราจะติดต่อกลับผ่านทาง email หรือ โทรศัพท์ ที่คุณกรอกไว้</p>') </script>
+                        
+                        {% endfor %}
+                    </ul>
+            
+                {% endif %} -->
+                <h1 class=" uk-text-center"> <i style="color:#2ECC71" class="fa fa-check-circle fa-3x" aria-hidden="true"></i></h1>
+                  <h2 class="thai_font uk-text-center"> คุณได้สั่งซื้อเรียบร้อยแล้ว  </h2 >
+                 <h3 class="thai_font uk-text-center">ทางเราจะติดต่อกลับผ่านทาง email หรือ โทรศัพท์ ที่คุณกรอกไว้</h3>
+            </div>
+        </div>
+    </div>
+    {% endblock %}

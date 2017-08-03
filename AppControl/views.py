@@ -29,7 +29,7 @@ def getdata(request,nodeid,temp,humi,key):
 	else:
 		print ("UnSave")
 	return HttpResponse(command,content_type='text/plain')
-def addprofile(request):
+def addprogram(request):
 	#form = None
 	#if request.method == 'POST':
 	form = ProfileForm(request.POST or None)
@@ -42,6 +42,7 @@ def addprofile(request):
 		lgreen = request.POST['lgreen']
 		lblue = request.POST['lblue']
 		post = Profile.objects.create(
+			name=name,
 			day=day,
 			temp=temp,
 			humi=humi,
@@ -58,9 +59,19 @@ def addprofile(request):
 	#return render(request, 'addprofile.html')
 
 def getprogram(request):
-	data = Profile.objects.all().values('day','temp','humi','ontime','lred','lgreen','lblue')[:1:1]
-	print(data)
-	return HttpResponse(data)
+	y = "A"
+	x = 3
+	data = Profile.objects.all().filter(day=x,name=y).values('day','temp','humi','ontime','lred','lgreen','lblue')
+	#print(data[0]['temp'])
+	t = data[0]['temp']
+	h = data[0]['humi']
+	o = data[0]['ontime']
+	r = data[0]['lred']
+	g = data[0]['lgreen']
+	b = data[0]['lblue']
+	command = "%03d,%03d,%03d,%03d,%03d,%03d"%(t,h,o,r,g,b)
+	print(command)
+	return HttpResponse(command)
 def genSN(request):
 	x = random.randint(1,10000000000)
 	y=("%010d"%x)

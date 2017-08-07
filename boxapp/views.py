@@ -39,16 +39,25 @@ def mybox( request):
 def add_box( request):
 	boxform = CreateBoxModelForm()
 	if request.method == 'POST':
-		boxform = CreateBoxModelForm(request.POST, request.FILES)
+		# boxform = CreateBoxModelForm(request.POST, request.FILES)
+		print(request.POST)
+		try:
+			code = request.POST.get('code')
+			obj = Box.objects.get(code=code)
+			box = Box.objects.filter(code=code).update(owner=request.user)
 
-		if boxform.is_valid():
-			try:
-				obj = Box.objects.get(code=boxform.cleaned_data['code'])
-				box = Box.objects.filter(code=boxform.cleaned_data['code']).update(owner=request.user)
+			return redirect('add_box_profile', pk=obj.pk)
+		except Box.DoesNotExist:
+			messages.error(request, 'ไม่มีหมายเลขนี้อยู่ในระบบ กรุณากรอกใหม่อีกครั้ง')
 
-				return redirect('add_box_profile', pk=obj.pk)
-			except Box.DoesNotExist:
-				messages.error(request, 'ไม่มีหมายเลขนี้อยู่ในระบบ กรุณากรอกใหม่อีกครั้ง')
+		# if boxform.is_valid():
+		# 	try:
+		# 		obj = Box.objects.get(code=boxform.cleaned_data['code'])
+		# 		box = Box.objects.filter(code=boxform.cleaned_data['code']).update(owner=request.user)
+
+		# 		return redirect('add_box_profile', pk=obj.pk)
+		# 	except Box.DoesNotExist:
+		# 		messages.error(request, 'ไม่มีหมายเลขนี้อยู่ในระบบ กรุณากรอกใหม่อีกครั้ง')
 			# box = Box.objects.create(
 			# 	code=boxform.cleaned_data['code'],
 			# 	password = boxform.cleaned_data['password'],

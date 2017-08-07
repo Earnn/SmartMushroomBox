@@ -1,13 +1,15 @@
 from django.contrib import admin
-from .models import Box,Profile,Sn
+from .models import Box2,Profile,Sn
 # Register your models here.
-class BoxAdmin(admin.ModelAdmin):
-	list_display=[f.name for f in Box._meta.fields]
+class Box2Admin(admin.ModelAdmin):
+	list_display=[f.name for f in Box2._meta.fields]
 	list_editable=("temp","humi")
-admin.site.register(Box,BoxAdmin)
+admin.site.register(Box2,Box2Admin)
 
 class ProgramAdmin(admin.ModelAdmin):
 	list_display=[f.name for f in Profile._meta.fields]
+	list_editable=("day","temp","humi","ontime","temp_closelight","humi_closelight","lred","lgreen","lblue")
+	list_filter=['name']
 admin.site.register(Profile,ProgramAdmin)
 
 class SnAdmin(admin.ModelAdmin):

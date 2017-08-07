@@ -20,12 +20,13 @@ void OnCooler();
 void OffCooler();
 void OnPump();
 void OffPump();
-void NoNet(float t,float h,int Tempcom,int Humicom,int vred,int vgreen,int vblue);
+void NoNet(float t,float h,int Tempcom,int Humicom,int Ontime,int Tempcom2,int Humicom2,int vred,int vgreen,int vblue);
+unsigned long timet;
 ////////////Setup//////////////////////////////////////////////////////////////
 
-const char* ssid     = "iot2";            //Set ssid
-const char* password = "12345678";                    //Set Password
-const char* Server   = "172.20.10.7";                //set Server Domain or Server ip
+const char* ssid     = "true_home2G_792";            //Set ssid
+const char* password = "ilovestudy";                    //Set Password
+const char* Server   = "192.168.1.55";                //set Server Domain or Server ip
 const char* Port     = "8001";                         //Set Port
 const char* Key      = "2345678909876543234567898765"; //Set Key
 const char* Id       = "7212364994";
@@ -77,7 +78,10 @@ void loop()
   {
     SendData(h,t);
   }
-
+  Serial.print("Time: ");
+  timet = millis();
+  Serial.println(timet);
+  delay(5000);
 }
 
 ///////////////////////SednData//////////////////////////////////////////////////////////////////
@@ -87,7 +91,10 @@ void SendData(float h,float t)
   int vgreen;
   int vblue;
   int Tempcom;
-  int Humicom; 
+  int Humicom;
+  int Tempcom2;
+  int Humicom2;
+  int Ontime;  
   // wait for WiFi connection
     if((WiFiMulti.run() == WL_CONNECTED)) 
     {
@@ -109,15 +116,35 @@ void SendData(float h,float t)
                 USE_SERIAL.println(payload);
                 String getTempCom = payload.substring(0,3);
                 String getHumiCom = payload.substring(4,7);
-                String Red = payload.substring(8,11);
-                String Green = payload.substring(12,15);
-                String Blue = payload.substring(16,19);
+                String getOntime = payload.substring(8,11);
+                String getTempCom2 = payload.substring(12,15);
+                String getHumiCom2 = payload.substring(16,19);
+                String Red = payload.substring(20,23);
+                String Green = payload.substring(24,27);
+                String Blue = payload.substring(28,31);
                 int vred = Red.toInt();
                 int vgreen = Green.toInt();
                 int vblue = Blue.toInt();
                 int Tempcom = getTempCom.toInt();
                 int Humicom = getHumiCom.toInt();
-
+                int Tempcom2 = getTempCom2.toInt();
+                int Humicom2 = getHumiCom2.toInt();
+                int Ontime = getOntime.toInt();
+                //Serial.print("temp_onlight");
+                Serial.println(Tempcom);
+                Serial.println(Humicom);
+                Serial.println(Ontime);
+                Serial.println(Tempcom2);
+                Serial.println(Humicom2);
+                Serial.println(vred);
+                Serial.println(vgreen);
+                Serial.println(vblue);
+                timet = millis();
+  int timeHr = timet/3600000;
+  Serial.print("Time_Hr");
+  Serial.println(timeHr);
+  if(Ontime<timeHr)
+  {
                 if(t<Tempcom)
                 {
                   OnCooler();
@@ -137,27 +164,58 @@ void SendData(float h,float t)
                 analogWrite(Led_Red,vred);
                 analogWrite(Led_Green,vgreen);
                 analogWrite(Led_Blue,vblue);
+  }
+  if(Ontime>=timeHr)
+  {
+    if(t<Tempcom2)
+     {
+      OnCooler();
+     }
+     else
+     {
+      OffCooler();
+     }
+     if(h<Humicom2)
+     {
+      OnPump();
+     }
+      else
+     {
+     OffPump();
+     }
+     int closelight = 0;
+     analogWrite(Led_Red,closelight);
+     analogWrite(Led_Green,closelight);
+     analogWrite(Led_Blue,closelight);
+  }
               }
               else
               {
-                NoNet(t,h,Tempcom,Humicom,vred,vgreen,vblue);
+                NoNet(t,h,Tempcom,Humicom,Ontime,Tempcom2,Humicom2,vred,vgreen,vblue);
               }
           }
           else
           {
-            NoNet(t,h,Tempcom,Humicom,vred,vgreen,vblue);
+            NoNet(t,h,Tempcom,Humicom,Ontime,Tempcom2,Humicom2,vred,vgreen,vblue);
           }
         http.end();
     }
     else
     {
-     NoNet(t,h,Tempcom,Humicom,vred,vgreen,vblue);
+     NoNet(t,h,Tempcom,Humicom,Ontime,Tempcom2,Humicom2,vred,vgreen,vblue);
     }
     delay(500);
 }
 
-void NoNet(float t,float h,int Tempcom,int Humicom,int vred,int vgreen,int vblue)
+void NoNet(float t,float h,int Tempcom,int Humicom,int Ontime,int Tempcom2,int Humicom2,int vred,int vgreen,int vblue)
 {
+  Serial.println("No-Net");
+  timet = millis();
+  int timeHr = timet/3600000;
+  Serial.print("Time_Hr");
+  Serial.println(timeHr);
+  if(Ontime<timeHr)
+  {
                 if(t<Tempcom)
                 {
                   OnCooler();
@@ -177,6 +235,31 @@ void NoNet(float t,float h,int Tempcom,int Humicom,int vred,int vgreen,int vblue
                 analogWrite(Led_Red,vred);
                 analogWrite(Led_Green,vgreen);
                 analogWrite(Led_Blue,vblue);
+  }
+  if(Ontime>=timeHr)
+  {
+    if(t<Tempcom2)
+     {
+      OnCooler();
+     }
+     else
+     {
+      OffCooler();
+     }
+     if(h<Humicom2)
+     {
+      OnPump();
+     }
+      else
+     {
+     OffPump();
+     }
+     int closelight = 0;
+     analogWrite(Led_Red,closelight);
+     analogWrite(Led_Green,closelight);
+     analogWrite(Led_Blue,closelight);
+  }
+                
 }
 
 ////////////////OnCooler//////////////////////////////////////////////////////////////

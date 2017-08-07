@@ -1,0 +1,82 @@
+{% extends 'base2.html' %} {% load static %} {% block content %}{% load widget_tweaks %}
+    <div class="navigation">
+        <div class="container">
+            <nav class="navbar navbar-default">
+                <div class="navbar-header nav_2">
+                    <button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+                    <ul class="nav navbar-nav">
+                        <li><a href="/mushroom/" class="act">Home</a></li>
+                        <li><a href="/mushroom/mybox/">My Box</a></li>
+                        <li><a href="/mushroom/add/">Add Box</a></li>
+                        <li class="active"><a href="/mushroom/buyproduct">Product</a></li>
+                        <li><a href="/mushroom/contact">Contact</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div class="bghead ">
+        <br>
+        <!-- <h2 style="" class="thai_font-title">ก ล่ อ ง เ ห็ ด อั จ ฉ ริ ย ะ</h2> -->
+        <h2 style="letter-spacing: 30px;" class="thai_font-title">กล่องเห็ดอัจฉริยะ</h2>
+        <h3 style="text-align: center; color: white;" class="thai_font">แก้ไขโปรไฟล์กล่องเห็ดของคุณที่นี่</h3>
+        <br>
+    </div>
+</header>
+<div class="container" style="width: 40%;float: center" >
+    <form method="post" enctype="multipart/form-data">  {% csrf_token %}
+        <div class="uk-card">
+            
+            <div class="uk-card-body">
+                <div class="uk-grid-match uk-child-width-1-2@m" uk-grid>
+                    <div>   <div class="uk-margin uk-grid-small uk-child-width-1-1@m uk-grid">
+                        <label class="uk-form-label thai_font uk-text-bottom" for="">ชื่อกล่อง: </label>
+                        <p class="uk-form-label thai_font " for="">{{ form.name }} </p>
+                    </div>
+                    <!-- <br>  <br> -->
+                    <div class="uk-margin uk-grid-small uk-child-width-1-1@m uk-grid">
+                        <label class="uk-form-label thai_font uk-text-bottom" for="">วันที่: </label>
+                        <p class="uk-form-label thai_font " for="">  {{ form.day }} </p>
+                    </div>
+                    <div class="uk-margin uk-grid-small uk-child-width-1-1@m uk-grid">
+                        <label class="uk-form-label thai_font uk-text-bottom" for="">อุณหภูมิ: </label>
+                        <p class="uk-form-label thai_font " for="">  {{ form.temp }} </p>
+                    </div>
+                    <div class="uk-margin uk-grid-small uk-child-width-1-1@m uk-grid">
+                        <label class="uk-form-label thai_font uk-text-bottom" for="">ความชื้น: </label>
+                        <p class="uk-form-label thai_font " for="">  {{ form.humi }} </p>
+                    </div></div>
+                    <div><div class="uk-margin uk-grid-small uk-child-width-1-1@m uk-grid">
+                        <label class="uk-form-label thai_font uk-text-bottom" for="">เวลา: </label>
+                        <p class="uk-form-label thai_font " for="">  {{ form.ontime }} </p>
+                    </div>
+                    <div class="uk-margin uk-grid-small uk-child-width-1-1@m uk-grid">
+                        <label class="uk-form-label thai_font uk-text-bottom" for="">สีแดง: </label>
+                        <p class="uk-form-label thai_font " for="">  {{ form.lred }} </p>
+                    </div>
+                    <div class="uk-margin uk-grid-small uk-child-width-1-1@m uk-grid">
+                        <label class="uk-form-label thai_font uk-text-bottom" for="">สีเขียว: </label>
+                        <p class="uk-form-label thai_font " for="">  {{ form.lgreen }} </p>
+                    </div>
+                    <div class="uk-margin uk-grid-small uk-child-width-1-1@m uk-grid">
+                        <label class="uk-form-label thai_font uk-text-bottom" for="">สีฟ้า: </label>
+                        <p class="uk-form-label thai_font " for="">  {{ form.lblue }} </p>
+                    </div></div>
+                    
+                    
+                </div>
+                <!-- grid 1-2 -->
+            </div>
+            <center> <button class="thai_font uk-button uk-button-primary" type="submit" style="background-color: #2ecc71">อัพเดทกล่อง</button></center>
+           
+        </form>
+       <br>
+       <br>
+    {% endblock %}

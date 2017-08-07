@@ -9,6 +9,7 @@ from django.views.generic.list import ListView
 from django.http import HttpResponseRedirect,HttpResponse
 from django.contrib import messages
 from .models import *
+from AppControl.models import Profile,UpdateProfileBoxModelForm
 
 
 @login_required
@@ -88,6 +89,23 @@ def delete_box(request, pk):
     item.delete()
 # <!--   <button style="float: right;" class="button btn-default"> <a style="color: black" href="{% url 'delete_box' box.id %}">Delete me</a></button> -->
     return HttpResponseRedirect('/mushroom/mybox')
+
+# @login_required
+# def update_box(request, pk):
+# 	form = UpdateProfileBoxModelForm()
+# 	if request.method == 'POST':
+# 		if form.is_valid():
+
+# 	return render(request, 'update.html',{'form':form})
+class UpdateBoxView(UpdateView):
+    queryset = Box.objects.all()
+    template_name='update.html'
+    form_class = UpdateProfileBoxModelForm
+    success_url = '/mushroom/mybox'
+    # item = Box.objects.get(id=pk)
+    # item.delete()
+# <!--   <button style="float: right;" class="button btn-default"> <a style="color: black" href="{% url 'delete_box' box.id %}">Delete me</a></button> -->
+    # return HttpResponseRedirect('/mushroom/mybox')
 
 def buy_box(request):
 	buyform = BuyBoxModelForm()

@@ -31,7 +31,7 @@ class Box(models.Model):
 
 class Buy(models.Model):
 	name = models.CharField(max_length=20)
-	email = models.CharField(max_length=20)
+	email = models.EmailField(max_length=20)   ##Edit CharField to EmailField
 	phone_number = models.CharField(max_length=20)
 	address = models.CharField(max_length=50)
 	order_amount = models.CharField(max_length=20)

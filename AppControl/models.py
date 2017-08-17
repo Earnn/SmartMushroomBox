@@ -8,7 +8,8 @@ class Box2(models.Model):
     code    = models.ForeignKey(Box, on_delete=models.SET_NULL,blank=True,null=True)
     temp    = models.FloatField(default=0.0)
     humi    = models.FloatField(default=0.0)
-
+    class Meta:
+        ordering = ['time']
     # def __unicode__(self):
     #     return 'adwdwaf'
     #class Meta:

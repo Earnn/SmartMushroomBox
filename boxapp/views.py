@@ -12,7 +12,7 @@ from .models import *
 from AppControl.models import Profile,UpdateProfileBoxModelForm
 
 
-@login_required
+#@login_required
 def home( request):
 	# username,mail = request.user.username.split("@")
 	username= request.user.username

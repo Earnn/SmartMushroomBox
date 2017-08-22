@@ -140,7 +140,8 @@ void SendData(float h,float t)
                 Serial.println(vgreen);
                 Serial.println(vblue);
                 timet = millis();
-  int timeHr = timet/3600000;
+  int timerHr = timet/3600000;
+  int timeHr = timerHr%24;
   Serial.print("Time_Hr");
   Serial.println(timeHr);
   if(Ontime<timeHr)
@@ -212,6 +213,7 @@ void NoNet(float t,float h,int Tempcom,int Humicom,int Ontime,int Tempcom2,int H
   Serial.println("No-Net");
   timet = millis();
   int timeHr = timet/3600000;
+  int timeHr = timerHr%24;
   Serial.print("Time_Hr");
   Serial.println(timeHr);
   if(Ontime<timeHr)

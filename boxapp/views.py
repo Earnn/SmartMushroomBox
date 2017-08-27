@@ -131,8 +131,8 @@ def buy_box(request):
 			messages.success(request, 'คุณได้สั่งซื้อเรียบร้อยแล้ว', extra_tags='alert')
 			return HttpResponseRedirect('/mushroom/buy/success')
 		else:
-			print("not vali")
-
+			print("not valid")
+			messages.error(request, "Error")
 	return render(request, 'buy.html',{'buyform':buyform})
 
 def contact(request):

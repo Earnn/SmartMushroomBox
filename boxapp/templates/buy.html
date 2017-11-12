@@ -43,7 +43,7 @@
             <h3 class="thai_font-title" style="color:black;  letter-spacing: 0px;">สั่งซื้อ Smart Mushroom Box</h3>
             <div class="uk-grid-match uk-child-width-1-2@m" uk-grid>
                 <div>
-                    <div class="">
+                    <div class="" >
                         <img class="img-logo uk-align-center uk-margin-remove-adjacent" src="{% static "images/box.jpg" %}">
                     </div>
                 </div>
@@ -98,19 +98,65 @@
                                         </p>
                                     </div>
                                 </div>
-                            </div>
-                            
+                            </div>          
                         </form>
-                        <h3 class="thai_font" style="color:black; text-align: left;">สอบถามรายละเอียดเพิ่มเติม</h3>
-                        <dl class="uk-description-list" style="margin-top: -1%;">
-                            <dd> คณะวิทยาศาสตร์และเทคโนโลยี มธ.ศูนย์รังสิต สาขาวิทยาการคอมพิวเตอร์ 02-986-9156</dd>
-                            <!-- <dt>Description term</dt> -->
-                            <dd>คณะวิทยาศาสตร์และเทคโนโลยี มธ.ศูนย์รังสิต 02-564-4440-59 ต่อ 2010</dd>
-                            <dd>www.sci.tu.ac.th</dd>
-                        </dl>
-                       
-               
             </div>
+        </div>
+    </div>
+    <div class="uk-section uk-section-default">
+        <div class="uk-container">
+            <h3 class="thai_font-title" style="color:black;  letter-spacing: 0px;">สั่งซื้อ เห็ดถังเช่าสีทอง</h3>
+                <div class="uk-grid-match uk-child-width-1-2@m" uk-grid>
+                    <div>
+                        <h3 class="thai_font-title"></h3>
+                        <div class="uk-margin">
+                                <label class="uk-form-label thai_font" for="form-stacked-text">จำนวนที่สั่งซื้อ</label>
+                                <div class="uk-form-controls">
+                                   {{buyform.order_amount}}
+                                </div>
+                        </div>                      
+                    <div class="uk-margin">
+                                <button class="uk-button uk-button-primary uk-align-center " style="background-color: #2ecc71" uk-toggle="target: #modal-example">สั่งซื้อ</button>
+                                <!-- This is the modal -->
+                                <div id="modal-example" uk-modal>
+                                    <div class="uk-modal-dialog uk-modal-body">
+                                        <h4 class="uk-modal-title thai_font" >สั่งซื้อ Smart Mushroom Box</h4>
+                                        <p class="thai_font uk-text-center " style="font-size: 18px;" >คุณต้องการจะสั่งซื้อ Smart Mushroom Box ใช่หรือไม่</p>
+                                        <p class="uk-text-center">
+                                            <button class="thai_font uk-button uk-button-default uk-modal-close" type="button">ยกเลิก</button>
+                                            <button   onclick="form_submit()" class="thai_font uk-button uk-button-primary" style="background-color: #2ecc71">ซื้อเลย</button>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                    <div>
+                        <div class="">
+                                <img class="img-logo uk-align-right uk-margin-remove-adjacent" src="{% static "images/mushroom.jpg" %}">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    <div class="uk-section uk-section-default">
+        <div class="uk-container">
+            <h3 class="thai_font-title" style="color:black;  letter-spacing: 0px;">ชำระเงิน</h3>
+                <div class="uk-grid-match uk-child-width-1-2@m" uk-grid>
+                    <div class="">
+                        <img class="img-logo uk-align-right uk-margin-remove-adjacent" src="{% static "images/pay5000.jpg" %}">
+                    </div>
+                    <div>
+                        <h3 class="thai_font"> แจ้งการชำระเงิน</h3>
+                            <form method="post" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    {{ form.as_p }}
+                                    <button type="submit">Upload</button>
+                            </form>
+                    </div>
+                </div>
+                
+
         </div>
     </div>
 </div>

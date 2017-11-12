@@ -75,3 +75,25 @@ class BuyBoxModelForm(ModelForm):
 		'order_amount' : TextInput(attrs={'placeholder': 'จำนวนสั่งซื้อ','class':'uk-input','id':'form-stacked-text','type':"number",'min':"1"}),
 	
 		}
+class BuyMushroomForm(ModelForm):
+	model = Buy
+	fields = [
+		"name",
+		"email",
+		"phone_number",
+		"address",
+		"order_amount",
+	]
+	widgets = {
+	'name': TextInput(attrs={'placeholder': 'ชื่อ-นามสกุล','class':'uk-input','id':'form-stacked-text','type':"text"}),
+	'address' : TextInput(attrs={'placeholder': 'ที่อยู่','class':'uk-input','id':'form-stacked-text','type':"text"}),
+	'phone_number' : TextInput(attrs={'placeholder': 'เบอร์โทร','class':'uk-input','id':'form-stacked-text','type':"text"}),
+	'email': TextInput(attrs={'placeholder': 'Email','class':'uk-input','id':'form-stacked-text','type':"email"}),
+	'order_amount' : TextInput(attrs={'placeholder': 'จำนวนสั่งซื้อ','class':'uk-input','id':'form-stacked-text','type':"number",'min':"1"}),
+
+	}
+		
+class Document(models.Model):
+    description = models.CharField(max_length=255, blank=True)
+    document    = models.FileField(upload_to='documents/')
+    uploaded_at = models.DateTimeField(auto_now_add=True)

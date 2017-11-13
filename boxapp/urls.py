@@ -15,4 +15,6 @@ urlpatterns = [
 	url(r'^contact/?$', views.contact, name='contact'),
 	url(r'^add/profile/(?P<pk>\d+)/?$', views.add_box_profile, name='add_box_profile'),
 	url(r'^delete/(?P<pk>\d+)', views.delete_box, name='delete_box'),
+	url(r'^payment/?$',views.model_form_upload,name='uploadPayment'),
+	url(r'^buy/payment/?$',views.model_form_upload,name='uploadPayment'),
 ]

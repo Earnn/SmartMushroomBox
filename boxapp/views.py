@@ -133,13 +133,40 @@ def buy_box(request):
 		else:
 			print("not valid")
 			messages.error(request, "Error")
-	return render(request, 'buy.html',{'buyform':buyform})
+	return render(request, 'buy.html',{'buyform':buyform,'form':DocumentForm2()})
+
+def buy_mushroom(request):
+	buyformmushroom = BuyMushroomModelForm()
+	if request.method == 'POST':
+		buyformmushroom = BuyMushroomModelForm(request.POST, request.FILES)
+		if buyformmushroom.is_valid():
+			buy_mushroom = BuyM.objects.create(
+				name=buyformmushroom.cleaned_data['name'],
+				address = buyformmushroom.cleaned_data['address'],
+				email = buyformmushroom.cleaned_data['email'],
+				phone_number = buyformmushroom.cleaned_data['phone_number'],
+				order_amount = buyformmushroom.cleaned_data['order_amount'],
+				)
+			messages.success(request, 'คุณได้สั่งซื้อเรียบร้อยแล้ว', extra_tags='alert')
+			return HttpResponseRedirect('/mushroom/buy/success')
+		else:
+			print("not valid")
+			messages.error(request, "Error")
+	return render(request, 'buy.html',{'buyformmushroom':buyformmushroom})
 
 def contact(request):
 	return render(request, 'contact.html')
 
 def buybox_success(request):
-	return render(request, 'buybox_success.html')
+    if request.method == 'POST':
+        form = DocumentForm2(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    else:
+        form = DocumentForm2()
+    print(form)
+    return render(request, 'buybox_success.html',{'form': form})
 
 def buybox( request):
 	return render(request, 'buy.html')
@@ -149,16 +176,15 @@ def contact( request):
 
 from django.conf import settings
 from django.core.files.storage import FileSystemStorage
-from .forms import DocumentForm
-
+from .forms import DocumentForm2
 def model_form_upload(request):
     if request.method == 'POST':
-        form = DocumentForm(request.POST, request.FILES)
+        form = DocumentForm2(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             return redirect('home')
     else:
-        form = DocumentForm()
-    return render(request, 'model_form_upload.html', {
-        'form': form
-    })
+        form = DocumentForm2()
+    print(form)
+    return render(request, 'buy.html', {'form': form})
+    #return render(request,{'form': form})

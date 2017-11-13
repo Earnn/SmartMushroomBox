@@ -35,6 +35,13 @@ class Buy(models.Model):
 	phone_number = models.CharField(max_length=20)
 	address = models.CharField(max_length=50)
 	order_amount = models.CharField(max_length=20)
+class BuyM(models.Model):
+	name = models.CharField(max_length=20)
+	email = models.EmailField(max_length=20)   ##Edit CharField to EmailField
+	phone_number = models.CharField(max_length=20)
+	address = models.CharField(max_length=50)
+	order_amount = models.CharField(max_length=20)
+
 		
 class CreateBoxModelForm(ModelForm):
 	class Meta:
@@ -75,8 +82,8 @@ class BuyBoxModelForm(ModelForm):
 		'order_amount' : TextInput(attrs={'placeholder': 'จำนวนสั่งซื้อ','class':'uk-input','id':'form-stacked-text','type':"number",'min':"1"}),
 	
 		}
-class BuyMushroomForm(ModelForm):
-	model = Buy
+class BuyMushroomModelForm(ModelForm):
+	model = BuyM
 	fields = [
 		"name",
 		"email",
@@ -93,7 +100,15 @@ class BuyMushroomForm(ModelForm):
 
 	}
 		
-class Document(models.Model):
+class Document2(models.Model):
+    name = models.CharField(max_length=255, blank=True)
+    amount = models.CharField(max_length=255,blank=False)
+    timeTransfer = models.CharField(max_length=255,blank=True)
     description = models.CharField(max_length=255, blank=True)
     document    = models.FileField(upload_to='documents/')
     uploaded_at = models.DateTimeField(auto_now_add=True)
+
+#class Document(models.Model):
+#    description = models.CharField(max_length=255, blank=True)
+#    document    = models.FileField(upload_to='documents/')
+#    uploaded_at = models.DateTimeField(auto_now_add=True)

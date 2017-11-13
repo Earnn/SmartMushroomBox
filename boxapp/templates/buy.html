@@ -112,7 +112,8 @@
                         <div class="uk-margin">
                                 <label class="uk-form-label thai_font" for="form-stacked-text">จำนวนที่สั่งซื้อ</label>
                                 <div class="uk-form-controls">
-                                   {{buyform.order_amount}}
+                                    {{buyformmushroom.order_amount}}
+                                   <!--{{buyform.order_amount}} -->
                                 </div>
                         </div>                      
                     <div class="uk-margin">
@@ -144,11 +145,11 @@
             <h3 class="thai_font-title" style="color:black;  letter-spacing: 0px;">ชำระเงิน</h3>
                 <div class="uk-grid-match uk-child-width-1-2@m" uk-grid>
                     <div class="">
-                        <img class="img-logo uk-align-right uk-margin-remove-adjacent" src="{% static "images/pay5000.jpg" %}">
+                        <img class="img-logo uk-align-right uk-margin-remove-adjacent" src="{% static "images/pay.jpg" %}">
                     </div>
                     <div>
                         <h3 class="thai_font"> แจ้งการชำระเงิน</h3>
-                            <form method="post" enctype="multipart/form-data">
+                            <form method="post" enctype="multipart/form-data" action="payment">
                                     {% csrf_token %}
                                     {{ form.as_p }}
                                     <button type="submit">Upload</button>

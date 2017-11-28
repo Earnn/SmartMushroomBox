@@ -83,22 +83,23 @@ class BuyBoxModelForm(ModelForm):
 	
 		}
 class BuyMushroomModelForm(ModelForm):
-	model = BuyM
-	fields = [
-		"name",
-		"email",
-		"phone_number",
-		"address",
-		"order_amount",
-	]
-	widgets = {
-	'name': TextInput(attrs={'placeholder': 'ชื่อ-นามสกุล','class':'uk-input','id':'form-stacked-text','type':"text"}),
-	'address' : TextInput(attrs={'placeholder': 'ที่อยู่','class':'uk-input','id':'form-stacked-text','type':"text"}),
-	'phone_number' : TextInput(attrs={'placeholder': 'เบอร์โทร','class':'uk-input','id':'form-stacked-text','type':"text"}),
-	'email': TextInput(attrs={'placeholder': 'Email','class':'uk-input','id':'form-stacked-text','type':"email"}),
-	'order_amount' : TextInput(attrs={'placeholder': 'จำนวนสั่งซื้อ','class':'uk-input','id':'form-stacked-text','type':"number",'min':"1"}),
-
-	}
+	class Meta:
+		model = BuyM
+		fields = [
+			"name",
+			"email",
+			"phone_number",
+			"address",
+			"order_amount",
+		]
+		widgets = {
+		'name': TextInput(attrs={'placeholder': 'ชื่อ-นามสกุล','class':'uk-input','id':'form-stacked-text','type':"text"}),
+		'address' : TextInput(attrs={'placeholder': 'ที่อยู่','class':'uk-input','id':'form-stacked-text','type':"text"}),
+		'phone_number' : TextInput(attrs={'placeholder': 'เบอร์โทร','class':'uk-input','id':'form-stacked-text','type':"text"}),
+		'email': TextInput(attrs={'placeholder': 'Email','class':'uk-input','id':'form-stacked-text','type':"email"}),
+		'order_amount' : TextInput(attrs={'placeholder': 'จำนวนสั่งซื้อ','class':'uk-input','id':'form-stacked-text','type':"number",'min':"1"}),
+	
+		}
 		
 class Document2(models.Model):
     name = models.CharField(max_length=255, blank=True)

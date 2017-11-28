@@ -109,13 +109,20 @@
                 <div class="uk-grid-match uk-child-width-1-2@m" uk-grid>
                     <div>
                         <h3 class="thai_font-title"></h3>
-                        <div class="uk-margin">
-                                <label class="uk-form-label thai_font" for="form-stacked-text">จำนวนที่สั่งซื้อ</label>
-                                <div class="uk-form-controls">
-                                    <!-- {{buyformmushroom.order_amount}} -->
-                                   {{buyform.order_amount}}
+                        <form class="uk-form-stacked" id="buy_form2" method="post" action="buymushroom" >
+                        {% csrf_token %}
+                                <div class="uk-margin">
+                                        <label class="uk-form-label thai_font" for="form-stacked-text">สั่งซื้อ</label>
+                                        <div class="uk-form-controls">
+                                            <!-- {{buyformmushroom.order_amount}} -->
+                                           {{buyformmushroom.order_amount}}
+                                           {{buyformmushroom.name}}
+                                           {{buyformmushroom.email}}
+                                           {{buyformmushroom.phone_number}}
+                                           {{buyformmushroom.address}}
+                                        </div>
                                 </div>
-                        </div>                      
+                        </form>                      
                     <div class="uk-margin">
                                 <button class="uk-button uk-button-primary uk-align-center " style="background-color: #2ecc71" uk-toggle="target: #modal-example">สั่งซื้อ</button>
                                 <!-- This is the modal -->
@@ -149,11 +156,14 @@
                     </div>
                     <div>
                         <h3 class="thai_font"> แจ้งการชำระเงิน</h3>
-                            <form method="post" enctype="multipart/form-data" action="payment">
+                            <div class="uk-form-controls">
+                                <form method="post" enctype="multipart/form-data" action="payment">
                                     {% csrf_token %}
                                     {{ form.as_p }}
                                     <button type="submit">Upload</button>
                             </form>
+                            </div>
+                            
                     </div>
                 </div>
                 
@@ -164,9 +174,16 @@
 </div>
 </div>
 <script type="text/javascript">
+
 function form_submit() {
 console.log("eieie");
 document.getElementById("buy_form").submit();
 }
+
+function form_submit2() {
+console.log("eieie");
+document.getElementById("buy_form2").submit();
+}
+
 </script>
 {% endblock %} {% block script %} {% endblock script %}

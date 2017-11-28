@@ -133,7 +133,7 @@ def buy_box(request):
 		else:
 			print("not valid")
 			messages.error(request, "Error")
-	return render(request, 'buy.html',{'buyform':buyform,'form':DocumentForm2()})
+	return render(request, 'buy.html',{'buyform':buyform,'form':DocumentForm2(),'buyformmushroom':BuyMushroomModelForm()})
 
 def buy_mushroom(request):
 	buyformmushroom = BuyMushroomModelForm()
@@ -167,6 +167,18 @@ def buybox_success(request):
         form = DocumentForm2()
     print(form)
     return render(request, 'buybox_success.html',{'form': form})
+    
+def buymushroom_success(request):
+    if request.method == 'POST':
+        form = DocumentForm2(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    else:
+        form = DocumentForm2()
+    print(form)
+    return render(request, 'buybox_success.html',{'form': form})
+
 
 def buybox( request):
 	return render(request, 'buy.html')

@@ -12,3 +12,8 @@ admin.site.register(Buy, BuyAdmin)
 class PaymentAdmin(admin.ModelAdmin):
 	list_display=[f.name for f in Document2._meta.fields]
 admin.site.register(Document2, PaymentAdmin)
+
+class BuyMushroomAdmin(admin.ModelAdmin):
+	list_display=[f.name for f in BuyM._meta.fields]
+admin.site.register(BuyM, BuyMushroomAdmin)
+

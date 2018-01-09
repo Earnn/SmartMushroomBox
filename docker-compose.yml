@@ -1,0 +1,21 @@
+version: "2"
+services:
+  web:
+    build: ./web
+    restart: always
+    volumes:
+      - ./web:/web
+    command: sh rundev.sh
+
+
+  nginx:
+    image: nginx:latest
+    restart: always
+    ports:
+      - "80:80"
+    links:
+      - "web:web"
+    volumes:
+      - ./conf/nginx.conf/:/etc/nginx/conf.d/
+    depends_on:
+      - web

@@ -1,0 +1,5 @@
+flask
+flask-socketio
+django==1.11
+django-widget-tweaks
+django-crispy-forms
